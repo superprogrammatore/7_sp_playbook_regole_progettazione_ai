@@ -2,6 +2,7 @@ import { phases } from "@/data/phases";
 import { cn } from "@/lib/utils";
 import { LucideProps } from "lucide-react";
 import { Phase1Content } from "./Phase1Content";
+import { Phase2Content } from "./Phase2Content";
 import {
   BookOpen,
   Target,
@@ -41,6 +42,11 @@ export function PhaseContent({ phaseId }: PhaseContentProps) {
   // Show custom content for Phase 1
   if (phaseId === "phase-1") {
     return <Phase1Content />;
+  }
+
+  // Show custom content for Phase 2
+  if (phaseId === "phase-2") {
+    return <Phase2Content />;
   }
 
   const Icon = iconMap[phase.icon];
