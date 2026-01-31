@@ -12,6 +12,8 @@ export interface Prompt {
   id: string;
   title: string;
   description: string;
+  useCase: string;
+  expectedOutput: string[];
   content: string;
 }
 
@@ -28,6 +30,13 @@ export const promptCategories: PromptCategory[] = [
         id: "1.1",
         title: "Creare un progetto da zero con struttura corretta",
         description: "Cartelle, dipendenze, configurazioni base",
+        useCase: "Usa questo prompt quando parti da una cartella completamente vuota e vuoi creare un progetto professionale con una struttura solida fin dall'inizio.",
+        expectedOutput: [
+          "Struttura cartelle completa e organizzata",
+          "File di configurazione base pronti",
+          "Spiegazione del perché di ogni scelta",
+          "Boilerplate minimo funzionante"
+        ],
         content: `Sto partendo da una cartella completamente vuota.
 
 Voglio creare un nuovo progetto software professionale.
@@ -54,6 +63,13 @@ Poi:
         id: "1.2",
         title: "Inizializzare un progetto frontend o backend guidato passo passo",
         description: "Guida step-by-step per principianti",
+        useCase: "Perfetto se sei alle prime armi e vuoi capire ogni singolo passaggio dell'inizializzazione, senza saltare nulla.",
+        expectedOutput: [
+          "Spiegazione di ogni comando prima dell'esecuzione",
+          "Progetto inizializzato correttamente",
+          "Primo file funzionante",
+          "Istruzioni per avviare il progetto"
+        ],
         content: `Parto da una cartella vuota.
 
 Voglio inizializzare un progetto:
@@ -75,6 +91,13 @@ Poi:
         id: "1.3",
         title: "Configurare ambiente Node o Python",
         description: "Versioni, venv, npm, pip",
+        useCase: "Quando devi configurare l'ambiente di sviluppo in modo pulito e isolato, evitando conflitti tra versioni e dipendenze.",
+        expectedOutput: [
+          "Ambiente isolato configurato",
+          "Versioni corrette installate",
+          "Gestione dipendenze funzionante",
+          "Comandi di verifica eseguiti"
+        ],
         content: `Sto lavorando in una cartella vuota e voglio configurare correttamente l'ambiente di sviluppo.
 
 Obiettivi:
@@ -96,6 +119,13 @@ Alla fine:
         id: "1.4",
         title: "Creare e gestire file .env e .env.example",
         description: "Variabili d'ambiente sicure e organizzate",
+        useCase: "Fondamentale per gestire API keys, credenziali e configurazioni sensibili in modo sicuro e professionale.",
+        expectedOutput: [
+          "File .env.example documentato",
+          "File .env con valori fittizi",
+          "Configurazione per caricare le variabili",
+          "Best practice di sicurezza spiegate"
+        ],
         content: `Il progetto parte da zero.
 
 Voglio gestire correttamente le variabili d'ambiente.
@@ -119,6 +149,13 @@ Spiegami:
         id: "1.5",
         title: "Generare un README chiaro e professionale",
         description: "Documentazione iniziale completa",
+        useCase: "Quando vuoi che chiunque possa capire, installare e avviare il tuo progetto senza fare domande.",
+        expectedOutput: [
+          "README.md completo e professionale",
+          "Sezioni ben organizzate",
+          "Istruzioni chiare per esterni",
+          "Troubleshooting base incluso"
+        ],
         content: `Sto partendo da una cartella vuota.
 
 Voglio un README professionale, chiaro e leggibile anche da un junior.
@@ -141,6 +178,13 @@ Genera direttamente il file README.md completo.`
         id: "1.6",
         title: "Capire cosa succede al primo avvio del progetto",
         description: "Comprendere il flusso di bootstrap",
+        useCase: "Ideale per capire esattamente cosa accade quando lanci npm start o python main.py, senza zone d'ombra.",
+        expectedOutput: [
+          "Spiegazione del flusso di avvio",
+          "Ordine di caricamento chiarito",
+          "Punti critici identificati",
+          "Errori comuni spiegati"
+        ],
         content: `Sto per avviare il progetto per la prima volta.
 
 Voglio capire ESATTAMENTE cosa succede quando lancio:
@@ -161,6 +205,13 @@ Niente frasi vaghe.`
         id: "1.7",
         title: "Risolvere errori di avvio tipici",
         description: "Non parte, porta occupata, dipendenza mancante",
+        useCase: "Quando il progetto non parte e non sai da dove cominciare. Una checklist di debug sistematica.",
+        expectedOutput: [
+          "Checklist di debug ordinata",
+          "Errori comuni spiegati",
+          "Comandi risolutivi pronti",
+          "Prevenzione futura"
+        ],
         content: `Il progetto non parte correttamente.
 
 Voglio che tu agisca come debugger esperto.

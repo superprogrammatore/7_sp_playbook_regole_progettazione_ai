@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { promptCategories, PromptCategory, Prompt } from "@/data/promptCategories";
+import { promptCategories, Prompt } from "@/data/promptCategories";
 import { cn } from "@/lib/utils";
 import {
   ArrowLeft,
@@ -22,6 +22,10 @@ import {
   CheckCircle,
   Palette,
   Sparkles,
+  Lightbulb,
+  Target,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -49,10 +53,12 @@ interface PromptCategoryViewProps {
   onBack: () => void;
 }
 
-function PromptCard({ prompt, colorVar }: { prompt: Prompt; colorVar: string }) {
+function PromptCard({ prompt, colorVar, index }: { prompt: Prompt; colorVar: string; index: number }) {
   const [copied, setCopied] = useState(false);
+  const [expanded, setExpanded] = useState(index === 0); // First one expanded by default
 
-  const handleCopy = async () => {
+  const handleCopy = async (e: React.MouseEvent) => {
+    e.stopPropagation();
     try {
       await navigator.clipboard.writeText(prompt.content);
       setCopied(true);
@@ -64,61 +70,178 @@ function PromptCard({ prompt, colorVar }: { prompt: Prompt; colorVar: string }) 
   };
 
   return (
-    <div className="group relative rounded-xl border border-border/50 bg-card/50 overflow-hidden transition-all duration-300 hover:border-border hover:shadow-lg">
-      {/* Header */}
-      <div 
-        className="flex items-center justify-between p-4 border-b border-border/50"
-        style={{ backgroundColor: `hsl(var(${colorVar}) / 0.05)` }}
+    <div 
+      className={cn(
+        "group relative rounded-2xl border overflow-hidden transition-all duration-500",
+        expanded 
+          ? "border-border bg-card shadow-xl" 
+          : "border-border/50 bg-card/50 hover:border-border hover:bg-card/80"
+      )}
+    >
+      {/* Glow effect when expanded */}
+      {expanded && (
+        <div 
+          className="absolute inset-0 opacity-50 pointer-events-none"
+          style={{ 
+            background: `radial-gradient(ellipse at top left, hsl(var(${colorVar}) / 0.15), transparent 50%)`
+          }}
+        />
+      )}
+
+      {/* Header - Always visible */}
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="relative w-full flex items-center justify-between p-5 text-left"
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <div 
-            className="flex h-8 w-8 items-center justify-center rounded-lg font-bold text-sm"
+            className={cn(
+              "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-bold text-lg transition-all duration-300",
+              expanded && "scale-110 shadow-lg"
+            )}
             style={{ 
-              backgroundColor: `hsl(var(${colorVar}) / 0.15)`,
-              color: `hsl(var(${colorVar}))`
+              backgroundColor: `hsl(var(${colorVar}) / ${expanded ? 0.25 : 0.15})`,
+              color: `hsl(var(${colorVar}))`,
+              boxShadow: expanded ? `0 0 30px hsl(var(${colorVar}) / 0.3)` : 'none'
             }}
           >
             {prompt.id}
           </div>
-          <div>
-            <h3 className="font-semibold text-sm">{prompt.title}</h3>
-            <p className="text-xs text-muted-foreground">{prompt.description}</p>
+          <div className="flex-1 min-w-0">
+            <h3 className={cn(
+              "font-semibold transition-colors",
+              expanded ? "text-foreground" : "text-foreground/80"
+            )}>
+              {prompt.title}
+            </h3>
+            <p className="text-sm text-muted-foreground mt-0.5">{prompt.description}</p>
           </div>
         </div>
-        <button
-          onClick={handleCopy}
-          className={cn(
-            "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300",
-            copied 
-              ? "bg-green-500/20 text-green-500" 
-              : "bg-primary/10 text-primary hover:bg-primary/20"
-          )}
-        >
-          {copied ? (
-            <>
-              <Check className="h-4 w-4" />
-              Copiato!
-            </>
-          ) : (
-            <>
-              <Copy className="h-4 w-4" />
-              Copia prompt
-            </>
-          )}
-        </button>
-      </div>
-
-      {/* Prompt content */}
-      <div className="p-4">
-        <div className="flex items-center gap-2 mb-3">
-          <Terminal className="h-4 w-4 text-muted-foreground" />
-          <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-            Cursor Chat (CMD+L)
-          </span>
+        
+        <div className="flex items-center gap-3 shrink-0 ml-4">
+          <button
+            onClick={handleCopy}
+            className={cn(
+              "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300",
+              copied 
+                ? "bg-green-500/20 text-green-400 shadow-lg" 
+                : "bg-primary/10 text-primary hover:bg-primary/20 hover:shadow-md"
+            )}
+          >
+            {copied ? (
+              <>
+                <Check className="h-4 w-4" />
+                <span className="hidden sm:inline">Copiato!</span>
+              </>
+            ) : (
+              <>
+                <Copy className="h-4 w-4" />
+                <span className="hidden sm:inline">Copia</span>
+              </>
+            )}
+          </button>
+          <div 
+            className={cn(
+              "flex h-8 w-8 items-center justify-center rounded-lg transition-all duration-300",
+              expanded ? "bg-primary/20 rotate-180" : "bg-muted/50"
+            )}
+          >
+            <ChevronDown className={cn(
+              "h-4 w-4 transition-colors",
+              expanded ? "text-primary" : "text-muted-foreground"
+            )} />
+          </div>
         </div>
-        <pre className="relative rounded-lg bg-muted/50 p-4 text-sm font-mono whitespace-pre-wrap overflow-x-auto border border-border/30">
-          <code className="text-foreground/90">{prompt.content}</code>
-        </pre>
+      </button>
+
+      {/* Expanded Content */}
+      <div className={cn(
+        "overflow-hidden transition-all duration-500",
+        expanded ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+      )}>
+        <div className="px-5 pb-5 space-y-5">
+          {/* Use Case & Expected Output */}
+          <div className="grid gap-4 md:grid-cols-2">
+            {/* When to use */}
+            <div 
+              className="rounded-xl p-4 border border-border/50"
+              style={{ backgroundColor: `hsl(var(${colorVar}) / 0.05)` }}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <div 
+                  className="flex h-7 w-7 items-center justify-center rounded-lg"
+                  style={{ backgroundColor: `hsl(var(${colorVar}) / 0.15)` }}
+                >
+                  <Lightbulb className="h-4 w-4" style={{ color: `hsl(var(${colorVar}))` }} />
+                </div>
+                <span className="text-sm font-semibold" style={{ color: `hsl(var(${colorVar}))` }}>
+                  Quando usarlo
+                </span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {prompt.useCase}
+              </p>
+            </div>
+
+            {/* Expected Output */}
+            <div className="rounded-xl p-4 border border-border/50 bg-muted/30">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/15">
+                  <Target className="h-4 w-4 text-primary" />
+                </div>
+                <span className="text-sm font-semibold text-primary">Output atteso</span>
+              </div>
+              <ul className="space-y-2">
+                {prompt.expectedOutput.map((output, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5" />
+                    <span>{output}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Prompt Content */}
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-muted">
+                  <Terminal className="h-4 w-4 text-muted-foreground" />
+                </div>
+                <span className="text-sm font-medium text-muted-foreground">
+                  Prompt per Cursor Chat (CMD+L)
+                </span>
+              </div>
+              <button
+                onClick={handleCopy}
+                className={cn(
+                  "flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300",
+                  copied 
+                    ? "bg-green-500/20 text-green-400" 
+                    : "bg-primary/10 text-primary hover:bg-primary/20"
+                )}
+              >
+                {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+                {copied ? "Copiato!" : "Copia prompt"}
+              </button>
+            </div>
+            
+            <div className="relative group/code">
+              <pre className="rounded-xl bg-[hsl(var(--background))] border border-border/50 p-5 text-sm font-mono whitespace-pre-wrap overflow-x-auto shadow-inner">
+                <code className="text-foreground/90 leading-relaxed">{prompt.content}</code>
+              </pre>
+              
+              {/* Decorative corner */}
+              <div 
+                className="absolute top-0 right-0 w-16 h-16 opacity-50"
+                style={{
+                  background: `linear-gradient(135deg, transparent 50%, hsl(var(${colorVar}) / 0.1) 50%)`
+                }}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -201,8 +324,8 @@ export function PromptCategoryView({ categoryId, onBack }: PromptCategoryViewPro
       {/* Prompts List */}
       {category.prompts.length > 0 ? (
         <div className="space-y-4">
-          {category.prompts.map((prompt) => (
-            <PromptCard key={prompt.id} prompt={prompt} colorVar={category.colorVar} />
+          {category.prompts.map((prompt, index) => (
+            <PromptCard key={prompt.id} prompt={prompt} colorVar={category.colorVar} index={index} />
           ))}
         </div>
       ) : (
