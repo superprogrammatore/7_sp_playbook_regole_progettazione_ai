@@ -96,6 +96,7 @@ const tools: Tool[] = [
     icon: Paintbrush,
     description: "Design collaborativo con AI features",
     colorVar: "--phase-8",
+    hasContent: true,
   },
   {
     id: "github-copilot",

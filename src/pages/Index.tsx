@@ -15,6 +15,7 @@ import { ReplitView } from "@/components/tools/ReplitView";
 import { BoltView } from "@/components/tools/BoltView";
 import { RorkView } from "@/components/tools/RorkView";
 import { Base44View } from "@/components/tools/Base44View";
+import { FigmaView } from "@/components/tools/FigmaView";
 
 const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
@@ -69,6 +70,9 @@ const Index = () => {
       }
       if (selectedTool === "base44") {
         return <Base44View onBack={() => setSelectedTool(null)} />;
+      }
+      if (selectedTool === "figma") {
+        return <FigmaView onBack={() => setSelectedTool(null)} />;
       }
       return <ToolsView onToolSelect={setSelectedTool} />;
     }
