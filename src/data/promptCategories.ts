@@ -3197,7 +3197,187 @@ Voglio un changelog che abbia davvero senso.`
     description: "Prompt per refactoring, test e mantenimento del codice",
     icon: "CheckCircle",
     colorVar: "--phase-5",
-    prompts: []
+    prompts: [
+      {
+        id: "14.1",
+        title: "Configurare formatter e linter",
+        description: "Setup professionale per codice leggibile e consistente",
+        useCase: "Usa questo prompt quando vuoi configurare strumenti automatici per mantenere il codice pulito, leggibile e privo di errori comuni.",
+        expectedOutput: [
+          "Stack progetto identificato",
+          "Formatter e linter configurati",
+          "File di configurazione creati",
+          "Integrazione nel flusso di lavoro"
+        ],
+        content: `Sto partendo da una cartella completamente vuota (o da un progetto già esistente).
+
+Voglio configurare formatter e linter in modo professionale.
+
+Obiettivi:
+- codice leggibile
+- stile consistente
+- errori intercettati subito
+
+Procedi così:
+1) identifica lo stack del progetto
+2) scegli formatter e linter adatti
+3) spiega cosa fa ognuno e perché servono entrambi
+4) crea i file di configurazione
+5) integra formatter e linter nel flusso di lavoro
+6) mostrami come eseguirli manualmente e automaticamente
+
+Voglio una configurazione usabile, non iper-complicata.`
+      },
+      {
+        id: "14.2",
+        title: "Rendere il codice consistente automaticamente",
+        description: "Applicare standard di stile uniformi a tutto il progetto",
+        useCase: "Quando hai codice scritto in modo inconsistente e vuoi uniformarlo automaticamente con un singolo comando.",
+        expectedOutput: [
+          "Incoerenze individuate",
+          "Standard imposto automaticamente",
+          "Diff prima/dopo mostrato",
+          "Prevenzione regressioni configurata"
+        ],
+        content: `Ho un progetto con codice scritto in modo inconsistente.
+
+Voglio rendere il codice consistente automaticamente.
+
+Obiettivi:
+- stesso stile ovunque
+- meno discussioni sul formatting
+- meno errori stupidi
+
+Procedi così:
+1) analizza il progetto e individua le incoerenze principali
+2) configura formatter e linter per imporre uno standard
+3) applica le regole automaticamente al codice esistente
+4) mostrami cosa cambia prima/dopo
+5) spiegami come evitare regressioni in futuro
+
+Il risultato deve essere riproducibile con un comando.`
+      },
+      {
+        id: "14.3",
+        title: "Eseguire test e controlli prima di pubblicare",
+        description: "Script di verifica pre-deploy per evitare bug in produzione",
+        useCase: "Prima di pubblicare un progetto, per assicurarti che non ci siano errori evidenti e che il codice sia pronto per la produzione.",
+        expectedOutput: [
+          "Test esistenti identificati",
+          "Controlli minimi configurati",
+          "Script pre-publish creato",
+          "Criteri di blocco deploy definiti"
+        ],
+        content: `Sto per pubblicare un progetto.
+
+Voglio eseguire test e controlli automatici prima del deploy.
+
+Obiettivi:
+- evitare bug evidenti
+- intercettare errori prima della produzione
+- flusso semplice e affidabile
+
+Procedi così:
+1) identifica i test già presenti (se esistono)
+2) proponi controlli minimi indispensabili:
+   - test
+   - lint
+   - build
+3) crea uno script unico di verifica pre-publish
+4) mostrami come interpretare i risultati
+5) spiega quando bloccare il deploy e quando no
+
+Voglio una barriera di sicurezza, non un ostacolo inutile.`
+      },
+      {
+        id: "14.4",
+        title: "Refactor sicuro su progetto esistente",
+        description: "Migliorare il codice senza rompere funzionalità",
+        useCase: "Quando hai un progetto funzionante ma difficile da mantenere e vuoi migliorarlo incrementalmente senza rischi.",
+        expectedOutput: [
+          "Aree critiche identificate",
+          "Strategia refactor definita",
+          "Modifiche incrementali applicate",
+          "Verifica funzionamento dopo ogni step"
+        ],
+        content: `Ho un progetto esistente che funziona, ma il codice è difficile da mantenere.
+
+Voglio fare refactor in modo sicuro.
+
+Obiettivi:
+- migliorare qualità del codice
+- non rompere funzionalità esistenti
+- procedere per piccoli passi
+
+Procedi così:
+1) analizza il progetto e individua le aree più critiche
+2) definisci una strategia di refactor incrementale
+3) applica un refactor alla volta
+4) dopo ogni modifica verifica che tutto funzioni
+5) spiega perché ogni refactor migliora il codice
+6) dimmi quando fermarmi
+
+Non voglio riscritture totali inutili.`
+      },
+      {
+        id: "14.5",
+        title: "Aggiornare dipendenze senza paura",
+        description: "Update sicuro e incrementale delle librerie",
+        useCase: "Quando hai dipendenze vecchie e vuoi aggiornarle in modo controllato, riducendo vulnerabilità senza breaking change.",
+        expectedOutput: [
+          "Dipendenze analizzate",
+          "Aggiornamenti sicuri vs rischiosi distinti",
+          "Update incrementali eseguiti",
+          "Strategia di rollback pronta"
+        ],
+        content: `Il progetto ha dipendenze vecchie e voglio aggiornarle senza fare danni.
+
+Obiettivi:
+- ridurre vulnerabilità
+- evitare breaking change non gestiti
+- mantenere il progetto stabile
+
+Procedi così:
+1) analizza le dipendenze attuali
+2) distinguere:
+   - aggiornamenti sicuri
+   - aggiornamenti rischiosi
+3) aggiorna una dipendenza alla volta
+4) verifica il comportamento del progetto dopo ogni update
+5) mostra come fare rollback se qualcosa si rompe
+6) spiega una strategia di aggiornamento continua
+
+Voglio perdere la paura degli update.`
+      },
+      {
+        id: "14.6",
+        title: "Aggiungere nuove feature a progetto già avviato",
+        description: "Integrare funzionalità mantenendo ordine e qualità",
+        useCase: "Quando devi aggiungere una nuova feature a un progetto esistente senza creare spaghetti code o compromettere l'architettura.",
+        expectedOutput: [
+          "Architettura esistente analizzata",
+          "Punto di inserimento identificato",
+          "Feature implementata incrementalmente",
+          "Impatto sul resto del progetto verificato"
+        ],
+        content: `Ho un progetto già avviato e voglio aggiungere una nuova feature.
+
+Obiettivi:
+- non creare spaghetti code
+- integrare bene la nuova funzionalità
+- mantenere qualità e ordine
+
+Procedi così:
+1) analizza l'architettura esistente
+2) individua il punto corretto dove inserire la feature
+3) proponi una soluzione coerente con il progetto
+4) implementa la feature passo passo
+5) aggiungi test o controlli se necessari
+6) verifica che il resto del progetto non sia stato impattato
+
+Agisci come se il progetto dovesse durare anni.`
+      }
+    ]
   },
   {
     id: "ui-professionale",
