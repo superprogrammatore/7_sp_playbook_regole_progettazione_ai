@@ -33,13 +33,21 @@ export function IntroView({ onPhaseChange }: IntroViewProps) {
         <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-phase-7/20 rounded-full blur-2xl float" style={{ animationDelay: '4s' }} />
 
         <div className="relative p-8 md:p-12">
-          <div className="flex items-center gap-2 text-primary">
+          {/* Top badges */}
+          <div className="flex flex-wrap items-center gap-3 mb-6">
             <div className="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 border border-primary/20">
-              <Sparkles className="h-4 w-4" />
-              <span className="text-sm font-semibold">Metodo Strutturato</span>
+              <Sparkles className="h-4 w-4 text-primary" />
+              <span className="text-sm font-semibold text-primary">Metodo Strutturato</span>
+            </div>
+            <div className="flex items-center gap-2 rounded-full bg-phase-7/15 px-4 py-1.5 border border-phase-7/30">
+              <Rocket className="h-4 w-4" style={{ color: 'hsl(var(--phase-7))' }} />
+              <span className="text-sm font-semibold" style={{ color: 'hsl(var(--phase-7))' }}>
+                Progetto integrativo SUPER PROGRAMMATORE
+              </span>
             </div>
           </div>
-          <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+          
+          <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
             Impara a guidare l'
             <span className="text-gradient">AI</span>
           </h1>
