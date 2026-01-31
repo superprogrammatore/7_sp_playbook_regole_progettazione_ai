@@ -5,19 +5,34 @@ import { PhaseContent } from "@/components/phases/PhaseContent";
 import { CycleView } from "@/components/phases/CycleView";
 import { IntroView } from "@/components/phases/IntroView";
 import { PromptsView } from "@/components/prompts/PromptsView";
+import { PromptCategoryView } from "@/components/prompts/PromptCategoryView";
 
 const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const handlePhaseChange = (phaseId: string) => {
+    setActivePhase(phaseId);
+    setSelectedCategory(null); // Reset category when changing phase
+  };
 
   const renderContent = () => {
     if (activePhase === "intro") {
-      return <IntroView onPhaseChange={setActivePhase} />;
+      return <IntroView onPhaseChange={handlePhaseChange} />;
     }
     if (activePhase === "cycle") {
-      return <CycleView onPhaseChange={setActivePhase} />;
+      return <CycleView onPhaseChange={handlePhaseChange} />;
     }
     if (activePhase === "prompts") {
-      return <PromptsView />;
+      if (selectedCategory) {
+        return (
+          <PromptCategoryView 
+            categoryId={selectedCategory} 
+            onBack={() => setSelectedCategory(null)} 
+          />
+        );
+      }
+      return <PromptsView onCategorySelect={setSelectedCategory} />;
     }
     return <PhaseContent phaseId={activePhase} />;
   };
@@ -31,7 +46,7 @@ const Index = () => {
         <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] bg-phase-7/5 rounded-full blur-3xl" />
       </div>
 
-      <Sidebar activePhase={activePhase} onPhaseChange={setActivePhase} />
+      <Sidebar activePhase={activePhase} onPhaseChange={handlePhaseChange} />
       
       <main className="relative pl-64">
         <Header activePhase={activePhase} />

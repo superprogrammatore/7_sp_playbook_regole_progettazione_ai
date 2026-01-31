@@ -43,11 +43,13 @@ const iconMap: Record<string, React.ComponentType<{ className?: string; style?: 
 };
 
 interface PromptsViewProps {
-  onCategorySelect?: (categoryId: string) => void;
+  onCategorySelect: (categoryId: string) => void;
 }
 
 export function PromptsView({ onCategorySelect }: PromptsViewProps) {
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
+
+  const totalPrompts = promptCategories.reduce((acc, cat) => acc + cat.prompts.length, 0);
 
   return (
     <div className="animate-fade-in space-y-8">
@@ -90,12 +92,10 @@ export function PromptsView({ onCategorySelect }: PromptsViewProps) {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-phase-6/10">
                 <Terminal className="h-4 w-4 text-phase-6" />
               </div>
-              <div>
-                <p className="text-2xl font-bold">
-                  {promptCategories.reduce((acc, cat) => acc + cat.prompts.length, 0)}
-                </p>
-                <p className="text-xs text-muted-foreground">Prompt totali</p>
-              </div>
+            <div>
+              <p className="text-2xl font-bold">{totalPrompts}</p>
+              <p className="text-xs text-muted-foreground">Prompt totali</p>
+            </div>
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@ export function PromptsView({ onCategorySelect }: PromptsViewProps) {
             return (
               <button
                 key={category.id}
-                onClick={() => onCategorySelect?.(category.id)}
+                onClick={() => onCategorySelect(category.id)}
                 onMouseEnter={() => setHoveredCategory(category.id)}
                 onMouseLeave={() => setHoveredCategory(null)}
                 className={cn(
