@@ -2178,7 +2178,226 @@ Approccio pratico, orientato alla realtà.`
     description: "Prompt per implementare pratiche di sicurezza fondamentali",
     icon: "Shield",
     colorVar: "--primary",
-    prompts: []
+    prompts: [
+      {
+        id: "9.1",
+        title: "Gestire password in modo sicuro (hashing)",
+        description: "Nessuna password in chiaro, hashing corretto",
+        useCase: "Quando devi implementare registrazione e login con password gestite in modo sicuro, senza mai salvarle in chiaro.",
+        expectedOutput: [
+          "Spiegazione pratica del perché dell'hashing",
+          "Algoritmo di hashing scelto e implementato",
+          "Registrazione con hashing e login con verifica",
+          "Errori comuni da evitare"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio implementare una gestione sicura delle password.
+
+Requisiti:
+- nessuna password in chiaro
+- hashing corretto
+- confronto sicuro in fase di login
+
+Procedi così:
+1) spiega in modo pratico perché NON si salvano password in chiaro
+2) scegli un algoritmo di hashing adatto a un progetto reale
+3) crea struttura progetto minimale
+4) implementa:
+   - registrazione con hashing
+   - login con verifica hash
+5) spiega cosa NON fare mai
+6) mostra errori comuni e come evitarli
+
+Codice semplice, ma fatto bene.`
+      },
+      {
+        id: "9.2",
+        title: "Proteggere chiavi API e segreti",
+        description: "Nessun segreto nel codice, variabili d'ambiente",
+        useCase: "Quando hai chiavi API, token o altri segreti che non devono mai finire nel repository o nel codice visibile.",
+        expectedOutput: [
+          "Spiegazione dei rischi dei segreti esposti",
+          "Struttura per gestione configurazioni",
+          "File .env e .env.example creati",
+          "Esempi di cosa succede quando si sbaglia"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio gestire correttamente chiavi API, token e segreti.
+
+Obiettivi:
+- nessun segreto nel codice
+- configurazione sicura
+- separazione ambienti (dev / prod)
+
+Procedi così:
+1) spiega cosa sono i segreti e perché sono critici
+2) crea struttura per gestione configurazioni
+3) usa variabili d'ambiente correttamente
+4) crea .env e .env.example
+5) mostra come caricare i segreti nel codice
+6) spiega cosa succede quando si sbaglia (con esempi)
+
+Approccio pratico, zero teoria inutile.`
+      },
+      {
+        id: "9.3",
+        title: "Gestire ruoli e permessi (user / admin)",
+        description: "Controllo accessi semplice ed estendibile",
+        useCase: "Quando hai bisogno di differenziare gli utenti normali dagli admin, proteggendo funzionalità riservate.",
+        expectedOutput: [
+          "Modello dati per ruoli implementato",
+          "Utenti normali e admin distinti",
+          "Protezione endpoint riservati",
+          "Esempi di accesso consentito e negato"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio implementare ruoli e permessi (user / admin).
+
+Obiettivi:
+- controllo accessi semplice
+- logica chiara
+- estendibile in futuro
+
+Procedi così:
+1) spiega il concetto di ruolo e permesso in modo concreto
+2) definisci un modello dati minimale
+3) implementa:
+   - utenti normali
+   - utenti admin
+4) proteggi endpoint o funzionalità riservate
+5) mostra esempi di accesso consentito e negato
+6) spiega errori comuni da evitare
+
+Niente sistemi complessi inutili.`
+      },
+      {
+        id: "9.4",
+        title: "Configurare CORS correttamente",
+        description: "Evitare errori browser senza aprire tutto",
+        useCase: "Quando la tua API deve essere chiamata dal browser e vuoi configurare CORS in modo sicuro, non permissivo.",
+        expectedOutput: [
+          "Spiegazione pratica del CORS",
+          "Esempio di problema reale senza CORS",
+          "Configurazione corretta implementata",
+          "Esempi di richieste permesse e bloccate"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio configurare correttamente il CORS per una API.
+
+Obiettivi:
+- evitare errori lato browser
+- non aprire tutto inutilmente
+- configurazione chiara
+
+Procedi così:
+1) spiega cos'è il CORS in modo pratico (non teorico)
+2) mostra un esempio di problema reale senza CORS
+3) implementa una configurazione CORS corretta
+4) limita origini, metodi e header
+5) mostra esempi di richieste permesse e bloccate
+6) spiega cosa NON fare mai con il CORS
+
+Focus su sicurezza reale.`
+      },
+      {
+        id: "9.5",
+        title: "Validare input per evitare abusi",
+        description: "Prevenire input malformati e ridurre superficie di attacco",
+        useCase: "Quando vuoi proteggere la tua applicazione da input malevoli o malformati che potrebbero causare bug o vulnerabilità.",
+        expectedOutput: [
+          "Spiegazione della validazione come misura di sicurezza",
+          "Regole di validazione implementate",
+          "Gestione input mancanti, extra o errati",
+          "Esempi di input valido e non valido"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio validare l'input per evitare abusi e bug.
+
+Obiettivi:
+- prevenire input malformati
+- ridurre superficie di attacco
+- migliorare stabilità
+
+Procedi così:
+1) spiega perché la validazione è una misura di sicurezza
+2) definisci regole di validazione realistiche
+3) implementa validazione lato server
+4) gestisci input mancanti, extra o errati
+5) mostra esempi di input valido e non valido
+6) spiega limiti della validazione
+
+Codice chiaro, niente scorciatoie.`
+      },
+      {
+        id: "9.6",
+        title: "Checklist di sicurezza prima del deploy",
+        description: "Verifica guidata per ogni progetto",
+        useCase: "Quando stai per mandare in produzione e vuoi una checklist sistematica per non dimenticare nulla di critico.",
+        expectedOutput: [
+          "Checklist guidata completa",
+          "Copertura di configurazione, segreti, auth, logging",
+          "Per ogni punto: cosa verificare e perché",
+          "Criteri per capire quando è abbastanza sicuro"
+        ],
+        content: `Sto per mandare un progetto in produzione.
+
+Voglio una checklist di sicurezza pratica prima del deploy.
+
+Agisci così:
+1) comportati come checklist di sicurezza guidata
+2) copri:
+   - configurazione
+   - segreti
+   - autenticazione
+   - autorizzazione
+   - logging
+   - error handling
+3) per ogni punto dimmi:
+   - cosa verificare
+   - perché è importante
+   - errore tipico da evitare
+4) fammi capire quando il progetto è "abbastanza sicuro"
+
+Voglio una checklist riutilizzabile per ogni progetto.`
+      },
+      {
+        id: "9.7",
+        title: "Analizzare dipendenze vulnerabili",
+        description: "Individuare e gestire vulnerabilità nelle librerie",
+        useCase: "Quando vuoi sapere se le librerie che usi hanno vulnerabilità note e come aggiornarle senza rompere tutto.",
+        expectedOutput: [
+          "Spiegazione delle dipendenze come superficie di attacco",
+          "Analisi delle dipendenze eseguita",
+          "Distinzione tra rischio reale e teorico",
+          "Procedura di aggiornamento sicuro"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio analizzare le dipendenze del progetto per individuare vulnerabilità note.
+
+Obiettivi:
+- sapere cosa uso davvero
+- individuare dipendenze rischiose
+- aggiornare senza rompere tutto
+
+Procedi così:
+1) spiega perché le dipendenze sono una superficie di attacco
+2) mostra come analizzare le dipendenze
+3) interpreta i risultati (non solo elencarli)
+4) distingui:
+   - rischio reale
+   - rischio teorico
+5) mostra come aggiornare in sicurezza
+6) spiega errori comuni negli aggiornamenti
+
+Approccio pragmatico, niente panico.`
+      }
+    ]
   },
   {
     id: "deploy",
