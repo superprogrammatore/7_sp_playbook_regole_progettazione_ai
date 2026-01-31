@@ -7,6 +7,7 @@ import { Phase3Content } from "./Phase3Content";
 import { Phase4Content } from "./Phase4Content";
 import { Phase5Content } from "./Phase5Content";
 import { Phase6Content } from "./Phase6Content";
+import { Phase7Content } from "./Phase7Content";
 import {
   BookOpen,
   Target,
@@ -71,6 +72,11 @@ export function PhaseContent({ phaseId }: PhaseContentProps) {
   // Show custom content for Phase 6
   if (phaseId === "phase-6") {
     return <Phase6Content />;
+  }
+
+  // Show custom content for Phase 7
+  if (phaseId === "phase-7") {
+    return <Phase7Content />;
   }
 
   const Icon = iconMap[phase.icon];
