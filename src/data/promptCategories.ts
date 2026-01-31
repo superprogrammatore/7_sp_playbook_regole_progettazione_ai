@@ -1957,7 +1957,219 @@ Approccio pragmatico, niente magia.`
     description: "Prompt per creare, consumare e documentare API",
     icon: "Plug",
     colorVar: "--phase-8",
-    prompts: []
+    prompts: [
+      {
+        id: "8.1",
+        title: "Creare una API REST semplice (GET / POST)",
+        description: "API funzionante con endpoint base e dati JSON",
+        useCase: "Quando vuoi creare la tua prima API REST da zero, con endpoint GET e POST funzionanti e codice chiaro.",
+        expectedOutput: [
+          "Stack backend scelto e spiegato",
+          "Endpoint GET e POST implementati",
+          "Esempi di request e response",
+          "Istruzioni per avviare in locale"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio creare una API REST semplice ma fatta bene.
+
+Requisiti:
+- endpoint GET
+- endpoint POST
+- dati JSON
+- struttura chiara
+
+Obiettivi:
+- capire come nasce una API
+- poterla usare subito
+- evitare overengineering
+
+Procedi così:
+1) scegli uno stack backend semplice ed efficace
+2) spiega brevemente l'architettura
+3) crea la struttura del progetto
+4) implementa endpoint GET e POST
+5) mostra esempi di request e response
+6) dimmi come avviare la API in locale
+
+Scrivi codice reale e funzionante.`
+      },
+      {
+        id: "8.2",
+        title: "Testare API con curl o Postman",
+        description: "Test manuali per capire come funziona una API",
+        useCase: "Quando vuoi imparare a testare le tue API in modo autonomo usando curl dalla riga di comando o Postman.",
+        expectedOutput: [
+          "Spiegazione dell'importanza dei test API",
+          "Comandi curl per GET, POST, JSON",
+          "Equivalenti in Postman",
+          "Lettura delle risposte e riconoscimento errori"
+        ],
+        content: `Ho una API REST (anche appena creata).
+
+Voglio imparare a testarla correttamente con strumenti manuali.
+
+Procedi così:
+1) spiegami perché testare una API è fondamentale
+2) mostra come usare curl per:
+   - GET
+   - POST
+   - invio JSON
+3) mostra come fare le stesse cose con Postman
+4) spiegami come leggere le risposte
+5) mostra errori comuni e come riconoscerli
+
+Voglio diventare autonomo nel test delle API.`
+      },
+      {
+        id: "8.3",
+        title: "Validare input lato server",
+        description: "Non fidarsi mai del client, validazione robusta",
+        useCase: "Quando vuoi proteggere la tua API da dati sbagliati o malevoli validando tutto lato server.",
+        expectedOutput: [
+          "Spiegazione del perché non fidarsi del client",
+          "Regole di validazione implementate",
+          "Gestione input mancanti o invalidi",
+          "Esempi di errori di validazione"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio implementare validazione dell'input lato server per una API.
+
+Obiettivi:
+- evitare dati sbagliati
+- prevenire bug
+- migliorare sicurezza
+
+Procedi così:
+1) spiega perché non fidarsi mai del client
+2) definisci regole di validazione realistiche
+3) implementa la validazione negli endpoint
+4) gestisci input mancanti o invalidi
+5) mostra esempi di errori di validazione
+6) spiega come estendere la validazione in futuro
+
+Codice chiaro, niente magia.`
+      },
+      {
+        id: "8.4",
+        title: "Gestire errori API in modo chiaro",
+        description: "Status code corretti e messaggi coerenti",
+        useCase: "Quando vuoi che la tua API restituisca errori professionali, con status code corretti e messaggi chiari per i client.",
+        expectedOutput: [
+          "Struttura standard per gli errori",
+          "Gestione centralizzata implementata",
+          "Status code corretti assegnati",
+          "Lista di cosa non esporre mai"
+        ],
+        content: `Voglio gestire gli errori della mia API in modo professionale.
+
+Obiettivi:
+- errori coerenti
+- messaggi chiari
+- status code corretti
+
+Procedi così:
+1) spiega i principali errori API
+2) definisci una struttura standard per gli errori
+3) implementa gestione centralizzata degli errori
+4) assegna status code corretti
+5) mostra esempi reali di errori restituiti
+6) spiega cosa NON esporre mai al client
+
+Voglio API pulite e prevedibili.`
+      },
+      {
+        id: "8.5",
+        title: "Implementare rate limit di base",
+        description: "Protezione semplice contro abusi",
+        useCase: "Quando vuoi proteggere la tua API da abusi limitando il numero di richieste per utente/IP.",
+        expectedOutput: [
+          "Spiegazione pratica del rate limiting",
+          "Policy semplice definita",
+          "Rate limit implementato",
+          "Risposta quando limite superato"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio implementare un rate limit di base per una API.
+
+Obiettivi:
+- proteggere la API
+- evitare abuso
+- soluzione semplice e comprensibile
+
+Procedi così:
+1) spiega cos'è il rate limiting in modo pratico
+2) definisci una policy semplice (es. richieste/minuto)
+3) implementa il rate limit
+4) gestisci il superamento del limite
+5) mostra esempi di risposta quando il limite è superato
+6) spiega limiti di questa soluzione
+
+Niente sistemi complessi inutili.`
+      },
+      {
+        id: "8.6",
+        title: "Proteggere endpoint sensibili",
+        description: "Accesso controllato con token o API key",
+        useCase: "Quando hai endpoint che devono essere accessibili solo a utenti autorizzati e vuoi implementare una protezione corretta.",
+        expectedOutput: [
+          "Identificazione endpoint sensibili",
+          "Meccanismo di protezione scelto e implementato",
+          "Blocco accessi non autorizzati",
+          "Esempi di request valide e invalide"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio proteggere endpoint sensibili della mia API.
+
+Obiettivi:
+- accesso controllato
+- protezione dati
+- soluzione semplice ma corretta
+
+Procedi così:
+1) identifica cosa rende un endpoint "sensibile"
+2) scegli un meccanismo di protezione adatto (token, API key, ecc.)
+3) implementa la protezione
+4) blocca accessi non autorizzati
+5) mostra esempi di request valide e invalide
+6) spiega errori comuni da evitare
+
+Focus su sicurezza pragmatica.`
+      },
+      {
+        id: "8.7",
+        title: "Versionare una API senza rompere i client",
+        description: "Evoluzione compatibile nel tempo",
+        useCase: "Quando la tua API deve evolvere ma non puoi rompere i client esistenti che la usano.",
+        expectedOutput: [
+          "Spiegazione del perché del versioning",
+          "Strategie comuni mostrate",
+          "Due versioni implementate",
+          "Errori comuni da evitare"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio versionare una API in modo corretto senza rompere i client esistenti.
+
+Obiettivi:
+- evolvere la API nel tempo
+- mantenere compatibilità
+- evitare caos
+
+Procedi così:
+1) spiega perché la versioning è necessaria
+2) mostra le strategie comuni di versioning
+3) scegli una strategia semplice
+4) implementa due versioni della stessa API
+5) mostra come convivono
+6) spiega errori comuni nella versioning
+
+Approccio pratico, orientato alla realtà.`
+      }
+    ]
   },
   {
     id: "sicurezza",
