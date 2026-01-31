@@ -56,6 +56,7 @@ const tools: Tool[] = [
     icon: Heart,
     description: "Full-stack app builder con AI",
     colorVar: "--phase-1",
+    hasContent: true,
   },
   {
     id: "replit",
