@@ -11,7 +11,8 @@ import {
   Sparkles,
   ExternalLink,
   Wrench,
-  LucideIcon
+  LucideIcon,
+  ChevronRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +22,7 @@ interface Tool {
   icon: LucideIcon;
   description: string;
   colorVar: string;
-  comingSoon?: boolean;
+  hasContent?: boolean;
 }
 
 const tools: Tool[] = [
@@ -31,6 +32,7 @@ const tools: Tool[] = [
     icon: Code2,
     description: "AI-first code editor basato su VS Code",
     colorVar: "--primary",
+    hasContent: true,
   },
   {
     id: "windsurf",
@@ -97,7 +99,11 @@ const tools: Tool[] = [
   },
 ];
 
-export function ToolsView() {
+interface ToolsViewProps {
+  onToolSelect?: (toolId: string) => void;
+}
+
+export function ToolsView({ onToolSelect }: ToolsViewProps) {
   return (
     <div className="space-y-8 animate-fade-in">
       {/* Hero Section */}
@@ -149,14 +155,17 @@ export function ToolsView() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {tools.map((tool, index) => {
           const Icon = tool.icon;
+          const isClickable = tool.hasContent && onToolSelect;
           
           return (
             <div
               key={tool.id}
+              onClick={() => isClickable && onToolSelect(tool.id)}
               className={cn(
                 "group relative overflow-hidden rounded-xl border border-border/50 bg-card/80 p-6 transition-all duration-500",
                 "hover:border-transparent hover:-translate-y-1 hover:shadow-xl",
-                "animate-fade-in"
+                "animate-fade-in",
+                isClickable && "cursor-pointer"
               )}
               style={{ 
                 animationDelay: `${index * 50}ms`,
@@ -208,20 +217,33 @@ export function ToolsView() {
                     <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
                       {tool.name}
                     </h3>
-                    <ExternalLink className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {tool.hasContent ? (
+                      <ChevronRight className="h-4 w-4 text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    ) : (
+                      <ExternalLink className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                    )}
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {tool.description}
                   </p>
 
-                  {/* Coming Soon Badge */}
-                  <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted/50 border border-border/50">
-                    <div 
-                      className="w-2 h-2 rounded-full animate-pulse"
-                      style={{ backgroundColor: `hsl(var(${tool.colorVar}))` }}
-                    />
-                    <span className="text-xs text-muted-foreground">Contenuto in arrivo</span>
-                  </div>
+                  {/* Status Badge */}
+                  {tool.hasContent ? (
+                    <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/30">
+                      <div 
+                        className="w-2 h-2 rounded-full bg-primary"
+                      />
+                      <span className="text-xs text-primary font-medium">Guida disponibile</span>
+                    </div>
+                  ) : (
+                    <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted/50 border border-border/50">
+                      <div 
+                        className="w-2 h-2 rounded-full animate-pulse"
+                        style={{ backgroundColor: `hsl(var(${tool.colorVar}))` }}
+                      />
+                      <span className="text-xs text-muted-foreground">Contenuto in arrivo</span>
+                    </div>
+                  )}
                 </div>
               </div>
 

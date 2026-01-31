@@ -7,13 +7,17 @@ import { IntroView } from "@/components/phases/IntroView";
 import { PromptsView } from "@/components/prompts/PromptsView";
 import { PromptCategoryView } from "@/components/prompts/PromptCategoryView";
 import { ToolsView } from "@/components/tools/ToolsView";
+import { CursorView } from "@/components/tools/CursorView";
+
 const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedTool, setSelectedTool] = useState<string | null>(null);
 
   const handlePhaseChange = (phaseId: string) => {
     setActivePhase(phaseId);
-    setSelectedCategory(null); // Reset category when changing phase
+    setSelectedCategory(null);
+    setSelectedTool(null);
   };
 
   const renderContent = () => {
@@ -35,7 +39,10 @@ const Index = () => {
       return <PromptsView onCategorySelect={setSelectedCategory} />;
     }
     if (activePhase === "tools") {
-      return <ToolsView />;
+      if (selectedTool === "cursor") {
+        return <CursorView onBack={() => setSelectedTool(null)} />;
+      }
+      return <ToolsView onToolSelect={setSelectedTool} />;
     }
     return <PhaseContent phaseId={activePhase} />;
   };
