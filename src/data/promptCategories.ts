@@ -3386,7 +3386,165 @@ Agisci come se il progetto dovesse durare anni.`
     description: "Prompt per creare interfacce utente moderne e accessibili",
     icon: "Palette",
     colorVar: "--phase-6",
-    prompts: []
+    prompts: [
+      {
+        id: "15.1",
+        title: "Creare componenti riutilizzabili",
+        description: "Bottoni, card, input, modali con API chiare",
+        useCase: "Quando vuoi evitare duplicazioni nel codice frontend e creare una UI coerente con componenti facili da usare e mantenere.",
+        expectedOutput: [
+          "Elementi ripetuti individuati",
+          "Componenti riutilizzabili creati",
+          "Implementazioni duplicate sostituite",
+          "Guida all'estensione dei componenti"
+        ],
+        content: `Sto partendo da una cartella completamente vuota (o da un progetto frontend esistente).
+
+Voglio creare componenti UI riutilizzabili.
+
+Obiettivi:
+- evitare duplicazioni
+- codice più leggibile
+- UI coerente
+
+Procedi così:
+1) analizza lo stack frontend del progetto
+2) individua elementi ripetuti (bottoni, card, input, modali)
+3) progetta componenti riutilizzabili semplici
+4) implementa i componenti con API chiare (props / parametri)
+5) sostituisci le implementazioni duplicate
+6) spiegami come estendere i componenti senza romperli
+
+Voglio componenti pratici, non super-astratti.`
+      },
+      {
+        id: "15.2",
+        title: "Gestire loading, error e empty state",
+        description: "Feedback chiaro per stati intermedi e di errore",
+        useCase: "Quando la tua UI funziona ma mostra schermate vuote o rotte durante caricamento, errori o assenza di dati.",
+        expectedOutput: [
+          "Stati intermedi individuati",
+          "Componenti per ogni stato implementati",
+          "Flusso dati collegato agli stati",
+          "UX più solida e professionale"
+        ],
+        content: `Ho una UI che funziona, ma non gestisce bene stati intermedi.
+
+Voglio gestire in modo professionale:
+- loading state
+- error state
+- empty state
+
+Obiettivi:
+- feedback chiaro all'utente
+- niente schermate "rotte"
+- UX più solida
+
+Procedi così:
+1) spiega perché questi stati sono fondamentali
+2) individua i punti della UI dove servono
+3) implementa componenti o pattern per ogni stato
+4) collega gli stati al flusso dati reale
+5) mostra esempi concreti prima/dopo
+6) spiegami errori comuni da evitare
+
+Approccio pragmatico, zero effetti speciali.`
+      },
+      {
+        id: "15.3",
+        title: "Validare form lato frontend",
+        description: "Validazione con feedback immediato e messaggi utili",
+        useCase: "Quando vuoi prevenire errori banali nei form e dare feedback immediato all'utente prima dell'invio.",
+        expectedOutput: [
+          "Regole di validazione definite",
+          "Validazione frontend implementata",
+          "Messaggi di errore chiari",
+          "Gestione stato valido/non valido"
+        ],
+        content: `Sto partendo da una cartella vuota o da un progetto con form già esistenti.
+
+Voglio validare i form lato frontend in modo professionale.
+
+Obiettivi:
+- prevenire errori banali
+- feedback immediato all'utente
+- migliorare UX senza complicare il codice
+
+Procedi così:
+1) analizza i form esistenti (o creane uno di esempio)
+2) definisci regole di validazione realistiche
+3) implementa la validazione lato frontend
+4) mostra messaggi di errore chiari e utili
+5) gestisci stato valido / non valido
+6) spiega il rapporto tra validazione frontend e backend
+
+Voglio validazione utile, non solo "obbligatorio".`
+      },
+      {
+        id: "15.4",
+        title: "Migliorare UX senza riscrivere tutto",
+        description: "Piccoli cambiamenti ad alto impatto sulla percezione di qualità",
+        useCase: "Quando hai una UI funzionante ma poco gradevole e vuoi migliorarla con modifiche mirate senza stravolgere il codice.",
+        expectedOutput: [
+          "Problemi UX evidenti individuati",
+          "Miglioramenti mirati applicati",
+          "Spaziature, gerarchia e feedback ottimizzati",
+          "Percezione di qualità aumentata"
+        ],
+        content: `Ho una UI funzionante ma poco gradevole o confusa.
+
+Voglio migliorare la UX senza riscrivere tutto da zero.
+
+Obiettivi:
+- piccoli cambiamenti ad alto impatto
+- codice quasi invariato
+- miglior percezione di qualità
+
+Procedi così:
+1) analizza l'interfaccia attuale
+2) individua problemi UX evidenti
+3) proponi miglioramenti mirati:
+   - spaziature
+   - gerarchia visiva
+   - testi
+   - feedback
+4) applica le modifiche una alla volta
+5) spiega perché ogni modifica migliora l'esperienza
+6) dimmi quando fermarmi per evitare overdesign
+
+Agisci come un dev che rispetta il tempo.`
+      },
+      {
+        id: "15.5",
+        title: "Rendere l'interfaccia coerente e pulita",
+        description: "Stesso stile ovunque, meno confusione visiva",
+        useCase: "Quando l'interfaccia funziona ma è incoerente e vuoi applicare regole UI minime per professionalità percepita.",
+        expectedOutput: [
+          "Analisi colori, font, spaziature",
+          "Set minimo di regole UI definito",
+          "Varianti inutili ridotte",
+          "Coerenza mantenibile nel tempo"
+        ],
+        content: `Il progetto funziona, ma l'interfaccia è incoerente.
+
+Voglio rendere la UI coerente e pulita.
+
+Obiettivi:
+- stesso stile ovunque
+- meno confusione visiva
+- più professionalità percepita
+
+Procedi così:
+1) analizza colori, font, spaziature e componenti
+2) definisci un set minimo di regole UI
+3) applica le regole all'interfaccia esistente
+4) riduci varianti inutili
+5) mostra esempi prima/dopo
+6) spiega come mantenere coerenza nel tempo
+
+Voglio ordine, non rigidità estrema.`
+      }
+    ]
   },
   {
     id: "superpoteri",
