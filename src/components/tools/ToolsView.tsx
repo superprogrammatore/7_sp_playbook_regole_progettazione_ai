@@ -88,6 +88,7 @@ const tools: Tool[] = [
     icon: Layers,
     description: "AI-powered app development",
     colorVar: "--phase-5",
+    hasContent: true,
   },
   {
     id: "figma",

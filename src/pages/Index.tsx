@@ -14,6 +14,7 @@ import { LovableView } from "@/components/tools/LovableView";
 import { ReplitView } from "@/components/tools/ReplitView";
 import { BoltView } from "@/components/tools/BoltView";
 import { RorkView } from "@/components/tools/RorkView";
+import { Base44View } from "@/components/tools/Base44View";
 
 const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
@@ -65,6 +66,9 @@ const Index = () => {
       }
       if (selectedTool === "rork") {
         return <RorkView onBack={() => setSelectedTool(null)} />;
+      }
+      if (selectedTool === "base44") {
+        return <Base44View onBack={() => setSelectedTool(null)} />;
       }
       return <ToolsView onToolSelect={setSelectedTool} />;
     }
