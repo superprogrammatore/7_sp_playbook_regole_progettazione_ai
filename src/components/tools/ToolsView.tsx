@@ -64,6 +64,7 @@ const tools: Tool[] = [
     icon: RefreshCw,
     description: "Cloud IDE con AI integrata",
     colorVar: "--phase-2",
+    hasContent: true,
   },
   {
     id: "bolt",

@@ -11,6 +11,7 @@ import { CursorView } from "@/components/tools/CursorView";
 import { WindsurfView } from "@/components/tools/WindsurfView";
 import { ClaudeCodeView } from "@/components/tools/ClaudeCodeView";
 import { LovableView } from "@/components/tools/LovableView";
+import { ReplitView } from "@/components/tools/ReplitView";
 
 const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
@@ -53,6 +54,9 @@ const Index = () => {
       }
       if (selectedTool === "lovable") {
         return <LovableView onBack={() => setSelectedTool(null)} />;
+      }
+      if (selectedTool === "replit") {
+        return <ReplitView onBack={() => setSelectedTool(null)} />;
       }
       return <ToolsView onToolSelect={setSelectedTool} />;
     }
