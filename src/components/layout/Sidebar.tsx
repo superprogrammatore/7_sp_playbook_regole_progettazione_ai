@@ -14,6 +14,7 @@ import {
   Sparkles,
   Zap,
   Terminal,
+  Wrench,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -260,6 +261,38 @@ export function Sidebar({ activePhase, onPhaseChange }: SidebarProps) {
               activePhase === "prompts" && "text-foreground"
             )}>
               Prompt Operativi
+            </span>
+          </button>
+
+          {/* TOP CODING TOOLS */}
+          <button
+            onClick={() => onPhaseChange("tools")}
+            className={cn(
+              "group relative flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm transition-all duration-300 mt-2",
+              activePhase === "tools"
+                ? "bg-gradient-to-r from-phase-6/20 to-phase-6/10 text-sidebar-accent-foreground shadow-lg"
+                : "text-muted-foreground hover:bg-phase-6/10 hover:text-sidebar-foreground"
+            )}
+          >
+            {activePhase === "tools" && (
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 rounded-r-full bg-phase-6" />
+            )}
+            <span className={cn(
+              "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-all duration-300",
+              activePhase === "tools" 
+                ? "bg-phase-6/20 shadow-md" 
+                : "bg-muted/50 group-hover:scale-110"
+            )}>
+              <Wrench className={cn(
+                "h-4 w-4",
+                activePhase === "tools" ? "text-phase-6" : "text-muted-foreground"
+              )} />
+            </span>
+            <span className={cn(
+              "truncate font-medium transition-colors",
+              activePhase === "tools" && "text-foreground"
+            )}>
+              Top Coding Tools
             </span>
           </button>
         </nav>

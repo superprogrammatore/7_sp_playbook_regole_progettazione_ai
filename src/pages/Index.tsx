@@ -6,7 +6,7 @@ import { CycleView } from "@/components/phases/CycleView";
 import { IntroView } from "@/components/phases/IntroView";
 import { PromptsView } from "@/components/prompts/PromptsView";
 import { PromptCategoryView } from "@/components/prompts/PromptCategoryView";
-
+import { ToolsView } from "@/components/tools/ToolsView";
 const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -33,6 +33,9 @@ const Index = () => {
         );
       }
       return <PromptsView onCategorySelect={setSelectedCategory} />;
+    }
+    if (activePhase === "tools") {
+      return <ToolsView />;
     }
     return <PhaseContent phaseId={activePhase} />;
   };
