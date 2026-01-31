@@ -2650,7 +2650,191 @@ Guidami come farebbe un senior in produzione.`
     description: "Prompt per gestire file, documenti e trasformazioni dati",
     icon: "FileText",
     colorVar: "--phase-2",
-    prompts: []
+    prompts: [
+      {
+        id: "11.1",
+        title: "Creare un generatore di PDF personalizzati",
+        description: "PDF automatici con dati dinamici e layout pulito",
+        useCase: "Quando hai bisogno di generare PDF automaticamente con dati personalizzati come fatture, report, certificati.",
+        expectedOutput: [
+          "Libreria PDF scelta e configurata",
+          "Template PDF implementato",
+          "Generazione con dati dinamici",
+          "File PDF salvati e realmente apribili"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio creare un generatore di PDF personalizzati.
+
+Obiettivi:
+- PDF generati automaticamente
+- dati dinamici (nome, data, contenuti)
+- layout semplice ma pulito
+
+Procedi così:
+1) scegli il linguaggio e la libreria più adatti
+2) crea la struttura del progetto
+3) implementa un template PDF
+4) genera PDF con dati personalizzati
+5) salva i PDF su file system
+6) spiegami come modificare layout e contenuti
+
+Voglio PDF reali, non esempi finti.`
+      },
+      {
+        id: "11.2",
+        title: "Creare file Excel automaticamente",
+        description: "Scrittura dati con formattazione e fogli multipli",
+        useCase: "Quando devi generare report Excel automatici con intestazioni, dati formattati e pronti per utenti non tecnici.",
+        expectedOutput: [
+          "Libreria Excel scelta e configurata",
+          "File Excel con intestazioni e dati",
+          "Formattazione base applicata",
+          "Istruzioni per fogli multipli e formule"
+        ],
+        content: `Parto da una cartella completamente vuota.
+
+Voglio creare file Excel in modo automatico.
+
+Obiettivi:
+- scrittura dati su fogli Excel
+- formattazione di base
+- file pronto per utenti non tecnici
+
+Procedi così:
+1) scegli la libreria più adatta
+2) crea struttura progetto
+3) genera un file Excel con:
+   - intestazioni
+   - righe di dati
+4) applica una minima formattazione
+5) salva il file
+6) spiegami come aggiungere più fogli o formule
+
+Il file deve essere realmente apribile in Excel.`
+      },
+      {
+        id: "11.3",
+        title: "Estrarre testo da PDF scansionati (OCR)",
+        description: "OCR per documenti scansionati con gestione errori",
+        useCase: "Quando hai PDF che sono immagini scansionate e vuoi estrarre il testo in modo automatico.",
+        expectedOutput: [
+          "Spiegazione differenza PDF nativi vs scansionati",
+          "Strumento OCR configurato",
+          "Estrazione testo implementata",
+          "Limiti OCR e come migliorare risultati"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio estrarre testo da PDF scansionati usando OCR.
+
+Obiettivi:
+- supporto PDF scansionati
+- output testo leggibile
+- gestione errori comuni
+
+Procedi così:
+1) spiega perché i PDF scansionati sono diversi
+2) scegli uno strumento OCR adatto
+3) crea struttura progetto
+4) implementa estrazione testo
+5) salva il testo estratto su file
+6) spiega limiti dell'OCR e come migliorare i risultati
+
+Approccio pratico, niente teoria inutile.`
+      },
+      {
+        id: "11.4",
+        title: "Tradurre documenti automaticamente",
+        description: "Traduzione automatica multi-lingua con output separato",
+        useCase: "Quando hai documenti da tradurre in più lingue in modo automatico, mantenendo file di output separati.",
+        expectedOutput: [
+          "Servizio di traduzione scelto",
+          "Flusso input → traduzione → output implementato",
+          "Gestione errori e limiti del servizio",
+          "Estensione a più formati spiegata"
+        ],
+        content: `Parto da una cartella completamente vuota.
+
+Voglio tradurre documenti automaticamente.
+
+Obiettivi:
+- traduzione automatica affidabile
+- supporto a più lingue
+- file di output separato
+
+Procedi così:
+1) scegli il tipo di documento da supportare (es. testo, PDF, Word)
+2) scegli il servizio di traduzione più adatto
+3) crea struttura progetto
+4) implementa il flusso:
+   input → traduzione → output
+5) gestisci errori e limiti del servizio
+6) spiega come estendere a più formati
+
+Il sistema deve funzionare end-to-end.`
+      },
+      {
+        id: "11.5",
+        title: "Manipolare file CSV e JSON",
+        description: "Lettura, trasformazione e export di dati strutturati",
+        useCase: "Quando devi leggere, modificare e salvare dati in formato CSV o JSON con gestione errori di formato.",
+        expectedOutput: [
+          "File CSV e JSON di esempio creati",
+          "Lettura e trasformazione implementate",
+          "Export file aggiornati",
+          "Differenze pratiche CSV vs JSON spiegate"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio manipolare file CSV e JSON.
+
+Obiettivi:
+- leggere file
+- modificare dati
+- esportare file aggiornati
+
+Procedi così:
+1) crea file CSV e JSON di esempio
+2) implementa lettura dei dati
+3) applica trasformazioni realistiche
+4) salva i nuovi file
+5) gestisci errori di formato
+6) spiega differenze pratiche tra CSV e JSON
+
+Codice chiaro e riutilizzabile.`
+      },
+      {
+        id: "11.6",
+        title: "Importare ed esportare dati da applicazioni",
+        description: "Import/export con validazione per produzione",
+        useCase: "Quando la tua applicazione deve permettere agli utenti di importare ed esportare dati in modo affidabile.",
+        expectedOutput: [
+          "Formato di scambio dati definito",
+          "Import con validazione implementato",
+          "Gestione errori e dati inconsistenti",
+          "Export dati strutturato"
+        ],
+        content: `Parto da una cartella completamente vuota.
+
+Voglio implementare import ed export dati per un'applicazione.
+
+Obiettivi:
+- import dati da file
+- validazione dati
+- export dati strutturati
+
+Procedi così:
+1) definisci un formato di scambio dati
+2) crea struttura progetto
+3) implementa import con validazione
+4) gestisci errori e dati inconsistenti
+5) implementa export dati
+6) spiega come usare import/export in scenari reali
+
+Voglio una soluzione usabile in produzione.`
+      }
+    ]
   },
   {
     id: "integrazioni",
