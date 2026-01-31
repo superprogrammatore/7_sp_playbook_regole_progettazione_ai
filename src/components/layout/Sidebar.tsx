@@ -13,6 +13,7 @@ import {
   RefreshCw,
   Sparkles,
   Zap,
+  Terminal,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -215,6 +216,50 @@ export function Sidebar({ activePhase, onPhaseChange }: SidebarProps) {
               activePhase === "cycle" && "text-foreground"
             )}>
               Ciclo Completo
+            </span>
+          </button>
+
+          {/* Section: Prompt Operativi */}
+          <div className="my-3">
+            <div className="flex items-center gap-2 px-3 py-2">
+              <div className="h-px flex-1 bg-gradient-to-r from-phase-7/50 to-transparent" />
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-phase-7 flex items-center gap-1">
+                <Terminal className="h-3 w-3" />
+                Libreria
+              </span>
+              <div className="h-px flex-1 bg-gradient-to-l from-phase-7/50 to-transparent" />
+            </div>
+          </div>
+
+          {/* Prompt Operativi */}
+          <button
+            onClick={() => onPhaseChange("prompts")}
+            className={cn(
+              "group relative flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm transition-all duration-300",
+              activePhase === "prompts"
+                ? "bg-gradient-to-r from-phase-7/20 to-phase-7/10 text-sidebar-accent-foreground shadow-lg"
+                : "text-muted-foreground hover:bg-phase-7/10 hover:text-sidebar-foreground"
+            )}
+          >
+            {activePhase === "prompts" && (
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 rounded-r-full bg-phase-7" />
+            )}
+            <span className={cn(
+              "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-all duration-300",
+              activePhase === "prompts" 
+                ? "bg-phase-7/20 shadow-md" 
+                : "bg-muted/50 group-hover:scale-110"
+            )}>
+              <Terminal className={cn(
+                "h-4 w-4",
+                activePhase === "prompts" ? "text-phase-7" : "text-muted-foreground"
+              )} />
+            </span>
+            <span className={cn(
+              "truncate font-medium transition-colors",
+              activePhase === "prompts" && "text-foreground"
+            )}>
+              Prompt Operativi
             </span>
           </button>
         </nav>

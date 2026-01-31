@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { PhaseContent } from "@/components/phases/PhaseContent";
 import { CycleView } from "@/components/phases/CycleView";
 import { IntroView } from "@/components/phases/IntroView";
+import { PromptsView } from "@/components/prompts/PromptsView";
 
 const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
@@ -14,6 +15,9 @@ const Index = () => {
     }
     if (activePhase === "cycle") {
       return <CycleView onPhaseChange={setActivePhase} />;
+    }
+    if (activePhase === "prompts") {
+      return <PromptsView />;
     }
     return <PhaseContent phaseId={activePhase} />;
   };
