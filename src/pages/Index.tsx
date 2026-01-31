@@ -1,12 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { Sidebar } from "@/components/layout/Sidebar";
+import { Header } from "@/components/layout/Header";
+import { PhaseContent } from "@/components/phases/PhaseContent";
+import { CycleView } from "@/components/phases/CycleView";
+import { IntroView } from "@/components/phases/IntroView";
 
 const Index = () => {
+  const [activePhase, setActivePhase] = useState("intro");
+
+  const renderContent = () => {
+    if (activePhase === "intro") {
+      return <IntroView onPhaseChange={setActivePhase} />;
+    }
+    if (activePhase === "cycle") {
+      return <CycleView onPhaseChange={setActivePhase} />;
+    }
+    return <PhaseContent phaseId={activePhase} />;
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Sidebar activePhase={activePhase} onPhaseChange={setActivePhase} />
+      
+      <main className="pl-64">
+        <Header activePhase={activePhase} />
+        <div className="container max-w-4xl py-8">
+          {renderContent()}
+        </div>
+      </main>
     </div>
   );
 };
