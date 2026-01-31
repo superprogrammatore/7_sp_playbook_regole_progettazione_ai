@@ -1768,7 +1768,187 @@ Vincoli:
     description: "Prompt per gestire database, query e strutture dati",
     icon: "Database",
     colorVar: "--phase-7",
-    prompts: []
+    prompts: [
+      {
+        id: "7.1",
+        title: "Implementare CRUD completo con interfaccia",
+        description: "Create, Read, Update, Delete con UI funzionante",
+        useCase: "Quando vuoi creare un sistema CRUD completo da zero, con frontend e backend separati e un'interfaccia usabile.",
+        expectedOutput: [
+          "Stack semplice ed efficace scelto",
+          "CRUD backend funzionante",
+          "Interfaccia web per tutte le operazioni",
+          "Istruzioni per avviare in locale"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio implementare un CRUD completo (Create, Read, Update, Delete) con interfaccia web.
+
+Obiettivi:
+- CRUD realmente funzionante
+- interfaccia semplice ma usabile
+- codice chiaro e separato (frontend / backend)
+
+Procedi così:
+1) scegli uno stack semplice ed efficace
+2) spiega brevemente l'architettura
+3) crea la struttura del progetto
+4) implementa il database
+5) implementa tutte le operazioni CRUD
+6) crea una UI per usare il CRUD
+7) dimmi come avviare tutto in locale
+
+Scrivi codice reale, pronto all'uso.`
+      },
+      {
+        id: "7.2",
+        title: "Collegare frontend e backend al database",
+        description: "Flusso completo dati: UI → backend → database → UI",
+        useCase: "Quando vuoi capire esattamente come i dati viaggiano dal frontend al database e tornano indietro, senza salti logici.",
+        expectedOutput: [
+          "Spiegazione flusso end-to-end",
+          "Backend con API implementato",
+          "Frontend che consuma le API",
+          "Verifica del flusso dati"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio collegare:
+- frontend
+- backend
+- database
+
+Obiettivo:
+- flusso completo dati: UI → backend → database → UI
+
+Procedi così:
+1) spiega il flusso di una richiesta end-to-end
+2) crea struttura progetto
+3) implementa backend con API
+4) implementa frontend che consuma le API
+5) collega il database
+6) mostra come verificare che i dati viaggiano correttamente
+
+Niente salti logici, voglio capire ogni passaggio.`
+      },
+      {
+        id: "7.3",
+        title: "Gestire migrazioni di schema",
+        description: "Modificare il database nel tempo senza rotture",
+        useCase: "Quando il tuo database deve evolvere nel tempo e vuoi gestire le modifiche allo schema in modo sicuro e reversibile.",
+        expectedOutput: [
+          "Strumento di migrazione configurato",
+          "Schema iniziale creato",
+          "Migrazione successiva implementata",
+          "Procedura di rollback spiegata"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio gestire correttamente le migrazioni di schema del database.
+
+Obiettivi:
+- creare schema iniziale
+- modificare lo schema nel tempo
+- evitare rotture in produzione
+
+Procedi così:
+1) scegli il database e lo strumento di migrazione più adatto
+2) crea la struttura iniziale
+3) implementa una migrazione
+4) implementa una modifica successiva (aggiunta campo, modifica tipo)
+5) spiega come applicare e rollbackare una migrazione
+6) spiega errori comuni da evitare
+
+Voglio approccio pratico, non teoria accademica.`
+      },
+      {
+        id: "7.4",
+        title: "Popolare il database con dati fittizi (seed)",
+        description: "Dati realistici per sviluppo e test",
+        useCase: "Quando hai bisogno di dati realistici per sviluppare e testare, con uno script ripetibile che non rompe nulla.",
+        expectedOutput: [
+          "Schema database pronto",
+          "Script di seeding funzionante",
+          "Dati fittizi ma coerenti",
+          "Comando singolo per rieseguire il seed"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio popolare il database con dati fittizi (seed).
+
+Obiettivi:
+- dati realistici
+- ripetibilità
+- utile per sviluppo e test
+
+Procedi così:
+1) crea schema database
+2) scrivi script di seeding
+3) genera dati fittizi ma coerenti
+4) spiega come rieseguire il seed senza rompere nulla
+5) spiega differenza tra seed e dati reali
+
+Il tutto deve funzionare con un solo comando.`
+      },
+      {
+        id: "7.5",
+        title: "Gestire errori di query e dati inconsistenti",
+        description: "Validazioni, error handling e messaggi sensati",
+        useCase: "Quando vuoi rendere il tuo sistema robusto contro errori di query, dati mancanti e casi limite nel database.",
+        expectedOutput: [
+          "Elenco problemi comuni lato database",
+          "Intercettazione errori di query",
+          "Validazioni backend implementate",
+          "Messaggi di errore user-friendly"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio gestire correttamente:
+- errori di query
+- dati inconsistenti
+- casi limite nel database
+
+Procedi così:
+1) elenca i problemi più comuni lato database
+2) mostra come intercettare errori di query
+3) implementa validazioni lato backend
+4) gestisci casi di dati mancanti o corrotti
+5) mostra messaggi di errore sensati per l'utente
+6) spiega come loggare errori critici
+
+Voglio codice robusto, non fragile.`
+      },
+      {
+        id: "7.6",
+        title: "Ottimizzare query lente in modo semplice",
+        description: "Diagnosi e ottimizzazione pragmatica",
+        useCase: "Quando hai query lente e vuoi capire perché e come migliorarle senza overengineering.",
+        expectedOutput: [
+          "Esempio di query lenta analizzato",
+          "Misurazione performance prima/dopo",
+          "Ottimizzazioni semplici applicate (indici, query migliori)",
+          "Criteri per sapere quando fermarsi"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio imparare a ottimizzare query lente in modo pratico.
+
+Obiettivi:
+- capire perché una query è lenta
+- migliorare senza overengineering
+- evitare ottimizzazioni premature
+
+Procedi così:
+1) crea un esempio di query lenta
+2) spiega perché è lenta
+3) mostra come misurare le performance
+4) applica ottimizzazioni semplici (indici, query migliori)
+5) confronta prima/dopo
+6) spiega quando fermarsi
+
+Approccio pragmatico, niente magia.`
+      }
+    ]
   },
   {
     id: "api",
