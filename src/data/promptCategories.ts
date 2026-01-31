@@ -25,7 +25,7 @@ export const promptCategories: PromptCategory[] = [
     colorVar: "--phase-1",
     prompts: [
       {
-        id: "0.1",
+        id: "1.1",
         title: "Creare un progetto da zero con struttura corretta",
         description: "Cartelle, dipendenze, configurazioni base",
         content: `Sto partendo da una cartella completamente vuota.
@@ -51,7 +51,7 @@ Poi:
 - genera i file iniziali vuoti o con boilerplate minimo`
       },
       {
-        id: "0.2",
+        id: "1.2",
         title: "Inizializzare un progetto frontend o backend guidato passo passo",
         description: "Guida step-by-step per principianti",
         content: `Parto da una cartella vuota.
@@ -72,7 +72,7 @@ Poi:
 4) spiegami cosa succede dietro le quinte`
       },
       {
-        id: "0.3",
+        id: "1.3",
         title: "Configurare ambiente Node o Python",
         description: "Versioni, venv, npm, pip",
         content: `Sto lavorando in una cartella vuota e voglio configurare correttamente l'ambiente di sviluppo.
@@ -93,7 +93,7 @@ Alla fine:
 - devo capire cosa succede quando installo un pacchetto`
       },
       {
-        id: "0.4",
+        id: "1.4",
         title: "Creare e gestire file .env e .env.example",
         description: "Variabili d'ambiente sicure e organizzate",
         content: `Il progetto parte da zero.
@@ -116,7 +116,7 @@ Spiegami:
 - errori comuni da evitare`
       },
       {
-        id: "0.5",
+        id: "1.5",
         title: "Generare un README chiaro e professionale",
         description: "Documentazione iniziale completa",
         content: `Sto partendo da una cartella vuota.
@@ -138,7 +138,7 @@ Scrivilo come se:
 Genera direttamente il file README.md completo.`
       },
       {
-        id: "0.6",
+        id: "1.6",
         title: "Capire cosa succede al primo avvio del progetto",
         description: "Comprendere il flusso di bootstrap",
         content: `Sto per avviare il progetto per la prima volta.
@@ -158,7 +158,7 @@ Usa un linguaggio semplice ma tecnico.
 Niente frasi vaghe.`
       },
       {
-        id: "0.7",
+        id: "1.7",
         title: "Risolvere errori di avvio tipici",
         description: "Non parte, porta occupata, dipendenza mancante",
         content: `Il progetto non parte correttamente.
