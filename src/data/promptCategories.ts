@@ -649,7 +649,244 @@ Scrivi codice completo, non pseudo-codice.`
     description: "Prompt per sviluppare applicazioni desktop e mobile",
     icon: "Smartphone",
     colorVar: "--phase-3",
-    prompts: []
+    prompts: [
+      {
+        id: "3.1",
+        title: "Creare una PWA (Progressive Web App)",
+        description: "Installabile, offline, veloce",
+        useCase: "Quando vuoi creare un'app web che si comporta come un'app nativa, installabile su qualsiasi dispositivo.",
+        expectedOutput: [
+          "PWA completa e funzionante",
+          "Service worker configurato",
+          "Cache intelligente implementata",
+          "Istruzioni per test e pubblicazione"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio creare una Progressive Web App (PWA) completa e funzionante.
+
+Obiettivi:
+- installabile su desktop e mobile
+- funzionante offline
+- caricamento veloce
+- struttura chiara
+
+Requisiti tecnici:
+- manifest.json
+- service worker
+- cache intelligente
+- fallback offline
+
+Procedi così:
+1) spiegami cos'è una PWA in modo pratico
+2) scegli lo stack più semplice ed efficace
+3) crea la struttura delle cartelle
+4) implementa service worker e cache
+5) spiegami come testarla localmente
+6) dimmi come pubblicarla correttamente
+
+Scrivi codice reale e funzionante.`
+      },
+      {
+        id: "3.2",
+        title: "Creare un'app Android",
+        description: "Progetto pulito, avvio su emulatore",
+        useCase: "Per sviluppare un'app Android da zero, con spiegazione del ciclo di vita e setup completo.",
+        expectedOutput: [
+          "Progetto Android funzionante",
+          "Prima schermata implementata",
+          "Istruzioni per emulatore",
+          "Ciclo di vita spiegato"
+        ],
+        content: `Parto da una cartella completamente vuota.
+
+Voglio creare un'app Android funzionante.
+
+Obiettivi:
+- progetto pulito
+- codice comprensibile
+- avvio rapido su emulatore o dispositivo reale
+
+Tecnologie:
+- scegli tu tra native o cross-platform
+- priorità alla chiarezza didattica
+
+Procedi così:
+1) spiega lo stack scelto e perché
+2) crea la struttura del progetto
+3) implementa una prima schermata funzionante
+4) fammi avviare l'app
+5) spiegami il ciclo di vita dell'app
+
+Niente codice incompleto o pseudo-codice.`
+      },
+      {
+        id: "3.3",
+        title: "Creare un'app iOS",
+        description: "Struttura ordinata, codice moderno",
+        useCase: "Per sviluppare un'app iOS nativa con struttura professionale e test su simulatore.",
+        expectedOutput: [
+          "Progetto iOS avviabile",
+          "Schermata iniziale implementata",
+          "Prerequisiti spiegati",
+          "Test su simulatore"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio creare un'app iOS funzionante.
+
+Obiettivi:
+- struttura ordinata
+- codice moderno
+- compatibilità con versioni recenti di iOS
+
+Vincoli:
+- spiegami ogni passaggio
+- assumiamo competenze base di programmazione
+
+Procedi così:
+1) scegli lo stack più adatto
+2) spiega i prerequisiti
+3) crea struttura progetto
+4) implementa una schermata iniziale
+5) spiegami come testarla su simulatore
+
+Il progetto deve essere realmente avviabile.`
+      },
+      {
+        id: "3.4",
+        title: "Creare un programma desktop per macOS",
+        description: "Interfaccia semplice, build distribuibile",
+        useCase: "Per creare un'applicazione desktop macOS con interfaccia grafica e possibilità di distribuzione.",
+        expectedOutput: [
+          "App desktop funzionante",
+          "Finestra principale implementata",
+          "Build distribuibile",
+          "Architettura spiegata"
+        ],
+        content: `Parto da una cartella completamente vuota.
+
+Voglio creare un'applicazione desktop per macOS.
+
+Obiettivi:
+- interfaccia semplice
+- struttura professionale
+- possibilità di estensione futura
+
+Tecnologie:
+- scegli tu lo stack migliore (native o cross-platform)
+- evita soluzioni inutilmente complesse
+
+Procedi così:
+1) spiega l'architettura
+2) crea struttura progetto
+3) implementa una finestra funzionante
+4) fammi avviare l'app localmente
+5) spiega come creare un build distribuibile
+
+Scrivi codice completo e commentato.`
+      },
+      {
+        id: "3.5",
+        title: "Creare un'app con storage cloud (S3)",
+        description: "Upload, download, credenziali sicure",
+        useCase: "Per integrare uno storage cloud come S3 per salvare e recuperare file in modo sicuro.",
+        expectedOutput: [
+          "Upload/download funzionanti",
+          "Autenticazione configurata",
+          "Ambiente test pronto",
+          "Verifica dati salvati"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio creare un'app che salva e recupera dati da uno storage cloud.
+
+Obiettivi:
+- upload e download funzionanti
+- credenziali gestite correttamente
+- sicurezza di base
+
+Vincoli:
+- usa ambiente di test
+- niente credenziali reali
+- codice chiaro
+
+Procedi così:
+1) scegli lo storage più adatto
+2) spiega il flusso di autenticazione
+3) crea struttura progetto
+4) implementa upload e download
+5) spiega come verificare i dati salvati
+
+Il sistema deve funzionare in locale.`
+      },
+      {
+        id: "3.6",
+        title: "Gestire file caricati dagli utenti",
+        description: "Upload sicuro, download controllato, limiti",
+        useCase: "Per gestire upload e download di file utente con sicurezza e controllo errori.",
+        expectedOutput: [
+          "Upload sicuro implementato",
+          "Download controllato",
+          "Limiti dimensione gestiti",
+          "Rischi sicurezza spiegati"
+        ],
+        content: `Parto da una cartella completamente vuota.
+
+Voglio creare un'app che gestisce file caricati dagli utenti.
+
+Requisiti:
+- upload sicuro
+- download controllato
+- gestione errori
+- limiti di dimensione
+
+Procedi così:
+1) definisci architettura frontend/backend
+2) crea struttura progetto
+3) implementa upload
+4) implementa download
+5) spiega rischi di sicurezza comuni
+6) mostra come mitigare gli errori più frequenti
+
+Scrivi codice pronto per l'uso.`
+      },
+      {
+        id: "3.7",
+        title: "Creare un'app offline-first con sincronizzazione",
+        description: "Storage locale, sync automatica, gestione conflitti",
+        useCase: "Per creare app che funzionano completamente offline e sincronizzano quando torna la connessione.",
+        expectedOutput: [
+          "App offline-first funzionante",
+          "Storage locale implementato",
+          "Sincronizzazione automatica",
+          "Gestione conflitti spiegata"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio creare un'app offline-first.
+
+Obiettivi:
+- utilizzo completo offline
+- salvataggio locale
+- sincronizzazione automatica quando torna la connessione
+
+Requisiti:
+- gestione conflitti
+- fallback robusto
+- codice comprensibile
+
+Procedi così:
+1) spiega il concetto offline-first
+2) scegli lo stack più adatto
+3) crea struttura progetto
+4) implementa storage locale
+5) implementa sincronizzazione
+6) spiega limiti e scenari critici
+
+Scrivi codice reale, non esempi teorici.`
+      }
+    ]
   },
   {
     id: "automazione",
