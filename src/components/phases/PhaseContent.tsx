@@ -4,6 +4,7 @@ import { LucideProps } from "lucide-react";
 import { Phase1Content } from "./Phase1Content";
 import { Phase2Content } from "./Phase2Content";
 import { Phase3Content } from "./Phase3Content";
+import { Phase4Content } from "./Phase4Content";
 import {
   BookOpen,
   Target,
@@ -53,6 +54,11 @@ export function PhaseContent({ phaseId }: PhaseContentProps) {
   // Show custom content for Phase 3
   if (phaseId === "phase-3") {
     return <Phase3Content />;
+  }
+
+  // Show custom content for Phase 4
+  if (phaseId === "phase-4") {
+    return <Phase4Content />;
   }
 
   const Icon = iconMap[phase.icon];
