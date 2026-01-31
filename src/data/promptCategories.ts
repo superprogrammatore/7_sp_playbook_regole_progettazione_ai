@@ -895,7 +895,364 @@ Scrivi codice reale, non esempi teorici.`
     description: "Prompt per creare script e automatizzare processi ripetitivi",
     icon: "Zap",
     colorVar: "--phase-4",
-    prompts: []
+    prompts: [
+      {
+        id: "4.1",
+        title: "Creare uno script PowerShell",
+        description: "Script professionale per Windows con commenti e logica reale",
+        useCase: "Quando hai bisogno di automatizzare operazioni su Windows in modo professionale, con uno script leggibile e facilmente modificabile.",
+        expectedOutput: [
+          "File .ps1 funzionante",
+          "Logica utile reale (non hello world)",
+          "Commenti esplicativi per ogni blocco",
+          "Istruzioni di esecuzione e modifica"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio creare uno script PowerShell professionale.
+
+Obiettivi:
+- compatibile con Windows moderno
+- leggibile e commentato
+- facilmente modificabile
+
+Procedi così:
+1) spiegami a cosa serve lo script che stai per creare
+2) crea il file .ps1
+3) implementa una logica utile reale (non hello world)
+4) commenta ogni blocco di codice
+5) spiegami come eseguirlo e come modificarlo
+
+Assumi competenze base ma non avanzate.`
+      },
+      {
+        id: "4.2",
+        title: "Creare uno script bash per Linux",
+        description: "Script bash robusto con gestione errori",
+        useCase: "Quando devi automatizzare task su Linux/macOS con uno script bash solido che gestisce gli errori correttamente.",
+        expectedOutput: [
+          "File .sh eseguibile",
+          "Funzionalità utile implementata",
+          "Controlli sugli errori",
+          "Istruzioni per renderlo eseguibile e testarlo"
+        ],
+        content: `Parto da una cartella completamente vuota.
+
+Voglio creare uno script bash per Linux.
+
+Obiettivi:
+- compatibile con bash standard
+- robusto
+- gestione errori di base
+
+Procedi così:
+1) spiega lo scopo dello script
+2) crea il file .sh
+3) implementa una funzionalità utile reale
+4) aggiungi controlli sugli errori
+5) spiegami come renderlo eseguibile
+6) spiegami come testarlo
+
+Niente scorciatoie.`
+      },
+      {
+        id: "4.3",
+        title: "Creare uno script Python",
+        description: "Script Python pulito, modulare e riutilizzabile",
+        useCase: "Quando vuoi creare uno script Python ben strutturato con funzioni separate e codice facilmente estendibile.",
+        expectedOutput: [
+          "File .py completo e funzionante",
+          "Funzioni separate e modulari",
+          "Commenti chiari",
+          "Istruzioni di esecuzione e estensione"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio creare uno script Python utile e riutilizzabile.
+
+Obiettivi:
+- codice pulito
+- funzioni separate
+- output chiaro
+
+Procedi così:
+1) spiega cosa fa lo script
+2) crea il file .py
+3) implementa la logica completa
+4) aggiungi commenti chiari
+5) spiegami come eseguirlo
+6) spiegami come estenderlo
+
+Scrivi codice pronto all'uso.`
+      },
+      {
+        id: "4.4",
+        title: "Eseguire script Python online",
+        description: "Script compatibile con ambienti online senza dipendenze",
+        useCase: "Quando vuoi creare uno script Python che possa essere eseguito su piattaforme online come Replit, Google Colab o altri ambienti cloud.",
+        expectedOutput: [
+          "Script senza dipendenze locali",
+          "Compatibilità con ambienti online",
+          "Output visibile chiaramente",
+          "Spiegazione delle differenze con l'esecuzione locale"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio creare uno script Python pensato per essere eseguito online.
+
+Obiettivi:
+- nessuna dipendenza locale
+- compatibilità con ambienti online
+- output visibile chiaramente
+
+Procedi così:
+1) spiega i limiti dell'esecuzione online
+2) scrivi uno script compatibile
+3) mostra come adattarlo a diversi ambienti online
+4) spiega differenze rispetto all'esecuzione locale
+
+Il codice deve funzionare senza configurazioni extra.`
+      },
+      {
+        id: "4.5",
+        title: "Creare uno script Python con interfaccia grafica",
+        description: "GUI desktop semplice con libreria standard",
+        useCase: "Quando vuoi trasformare uno script Python in un'applicazione con interfaccia grafica utilizzabile anche da utenti non tecnici.",
+        expectedOutput: [
+          "Applicazione GUI funzionante",
+          "Codice comprensibile e strutturato",
+          "Istruzioni di avvio",
+          "Guide per aggiungere funzionalità"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio creare uno script Python con interfaccia grafica.
+
+Obiettivi:
+- GUI semplice
+- codice comprensibile
+- funzionante su sistemi comuni
+
+Procedi così:
+1) scegli la libreria GUI più adatta
+2) spiega la struttura dell'app
+3) crea il file principale
+4) implementa una GUI funzionante
+5) spiega come avviarla
+6) spiega come aggiungere funzionalità
+
+Scrivi codice completo, non esempi parziali.`
+      },
+      {
+        id: "4.6",
+        title: "Convertire uno script Python in file EXE",
+        description: "Eseguibile standalone per Windows",
+        useCase: "Quando vuoi distribuire il tuo script Python come applicazione Windows che gli utenti possono eseguire senza installare Python.",
+        expectedOutput: [
+          "Script Python di esempio",
+          "Processo di conversione spiegato",
+          "Comandi precisi per la conversione",
+          "Problemi comuni e soluzioni"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio convertire uno script Python in un file EXE per Windows.
+
+Obiettivi:
+- eseguibile standalone
+- nessuna dipendenza esterna per l'utente finale
+
+Procedi così:
+1) crea uno script Python di esempio
+2) spiega il tool di conversione
+3) mostra i comandi precisi
+4) spiega i problemi comuni
+5) mostra come verificare l'EXE
+
+Voglio capire il processo, non solo copiarlo.`
+      },
+      {
+        id: "4.7",
+        title: "Creare un tool per controllare siti online/offline",
+        description: "Checker di URL con report e gestione timeout",
+        useCase: "Quando devi monitorare una lista di siti web per verificare che siano raggiungibili, con gestione intelligente di timeout e errori.",
+        expectedOutput: [
+          "Tool funzionante con input da file",
+          "Gestione timeout configurabile",
+          "Report chiaro e leggibile",
+          "Codice estendibile"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio creare un tool che:
+- legge una lista di URL
+- controlla se sono online o offline
+- mostra un report chiaro
+
+Obiettivi:
+- gestione timeout
+- gestione errori
+- output leggibile
+
+Procedi così:
+1) definisci struttura del progetto
+2) crea file di input per gli URL
+3) implementa il controllo
+4) genera output chiaro
+5) spiega come estendere il tool
+
+Scrivi codice pronto per l'uso reale.`
+      },
+      {
+        id: "4.8",
+        title: "Creare un wrapper per tool Linux (es. nmap)",
+        description: "Semplificazione di tool complessi con validazione input",
+        useCase: "Quando vuoi semplificare l'uso di tool Linux complessi creando un'interfaccia più user-friendly con validazione degli input.",
+        expectedOutput: [
+          "Wrapper funzionante per tool specifico",
+          "Validazione input implementata",
+          "Esempi di utilizzo",
+          "Guida all'estensione"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio creare un wrapper per un tool Linux (es. nmap).
+
+Obiettivi:
+- semplificare l'uso del tool
+- evitare errori comuni
+- parametri chiari
+
+Procedi così:
+1) spiega cosa fa il tool originale
+2) definisci i casi d'uso del wrapper
+3) crea lo script
+4) implementa validazione input
+5) mostra esempi di utilizzo
+6) spiega come estenderlo
+
+Scrivi codice solido, non demo fragile.`
+      },
+      {
+        id: "4.9",
+        title: "Realizzare un server FTP locale",
+        description: "Server FTP per condivisione file con utenti separati",
+        useCase: "Quando hai bisogno di condividere file in una rete locale in modo semplice, con gestione utenti e directory controllate.",
+        expectedOutput: [
+          "Server FTP funzionante in locale",
+          "Utenti di test configurati",
+          "Istruzioni di connessione",
+          "Rischi di sicurezza spiegati"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio creare un server FTP locale per condividere file.
+
+Obiettivi:
+- configurazione semplice
+- utenti separati
+- directory controllate
+
+Procedi così:
+1) scegli l'approccio più semplice
+2) spiega architettura e limiti
+3) implementa il server
+4) crea utenti di test
+5) mostra come collegarsi
+6) spiega i rischi di sicurezza
+
+Il sistema deve funzionare in locale.`
+      },
+      {
+        id: "4.10",
+        title: "Leggere metadati EXIF delle immagini",
+        description: "Estrazione metadati da foto con gestione errori",
+        useCase: "Quando vuoi estrarre informazioni nascoste dalle immagini come data di scatto, GPS, modello fotocamera e altri metadati EXIF.",
+        expectedOutput: [
+          "Script di lettura EXIF funzionante",
+          "Supporto JPEG/PNG",
+          "Gestione immagini senza metadati",
+          "Output formattato e leggibile"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio creare uno script che legge metadati EXIF delle immagini.
+
+Obiettivi:
+- supporto JPEG/PNG
+- output leggibile
+- gestione immagini senza EXIF
+
+Procedi così:
+1) spiega cosa sono i metadati EXIF
+2) crea struttura progetto
+3) implementa lettura EXIF
+4) gestisci errori
+5) mostra esempi di output
+
+Scrivi codice completo e commentato.`
+      },
+      {
+        id: "4.11",
+        title: "Generatore di password sicure con salvataggio criptato",
+        description: "Password manager minimale con cifratura",
+        useCase: "Quando hai bisogno di generare password robuste e salvarle in modo sicuro, con cifratura e nessuna password in chiaro.",
+        expectedOutput: [
+          "Generatore password robusto",
+          "Salvataggio cifrato implementato",
+          "Procedura di recupero dati",
+          "Limiti di sicurezza spiegati"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio creare un generatore di password sicure.
+
+Requisiti:
+- password robuste
+- salvataggio cifrato
+- nessuna password in chiaro
+
+Procedi così:
+1) spiega i criteri di sicurezza
+2) crea struttura progetto
+3) implementa generatore
+4) implementa cifratura
+5) spiega come recuperare i dati
+6) spiega limiti di sicurezza
+
+Il tool deve essere realistico.`
+      },
+      {
+        id: "4.12",
+        title: "Automatizzare task ripetitivi",
+        description: "Backup, rinomina file, scraping leggero con logging",
+        useCase: "Quando vuoi automatizzare operazioni ripetitive come backup, rinomina massiva di file o raccolta dati da web in modo responsabile.",
+        expectedOutput: [
+          "Script modulare con funzioni separate",
+          "Logging implementato",
+          "Istruzioni per schedulare lo script",
+          "Codice estendibile"
+        ],
+        content: `Parto da una cartella completamente vuota.
+
+Voglio creare uno script di automazione per task ripetitivi.
+
+Obiettivi:
+- backup automatici
+- rinomina file
+- scraping leggero e responsabile
+
+Procedi così:
+1) scegli il linguaggio più adatto
+2) crea struttura progetto
+3) implementa ogni task come funzione separata
+4) aggiungi logging
+5) spiega come schedulare lo script
+6) spiega come estenderlo
+
+Scrivi codice robusto e riutilizzabile.`
+      }
+    ]
   },
   {
     id: "debug",
