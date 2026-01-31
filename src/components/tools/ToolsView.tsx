@@ -146,6 +146,13 @@ export function ToolsView({ onToolSelect }: ToolsViewProps) {
             e casi d'uso ideali. Scopri quale fa al caso tuo.
           </p>
 
+          {/* Disclaimer */}
+          <p className="text-sm text-muted-foreground/70 max-w-2xl leading-relaxed mt-3 italic">
+            ⚠️ Questi strumenti sono in continua evoluzione e ne nascono sempre di nuovi. 
+            Per quanto si cercherà di mantenere aggiornata questa sezione, alcune informazioni 
+            potrebbero essere già cambiate.
+          </p>
+
           {/* Stats */}
           <div className="flex items-center gap-6 mt-6">
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-muted/50 border border-border/50">
