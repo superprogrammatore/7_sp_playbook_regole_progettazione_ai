@@ -75,11 +75,12 @@ const tools: Tool[] = [
     hasContent: true,
   },
   {
-    id: "v0",
-    name: "V0.dev",
+    id: "rork",
+    name: "Rork",
     icon: Sparkles,
-    description: "UI generation by Vercel",
+    description: "Native mobile app generator con AI",
     colorVar: "--phase-4",
+    hasContent: true,
   },
   {
     id: "base44",

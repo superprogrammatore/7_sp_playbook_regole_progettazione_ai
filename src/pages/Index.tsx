@@ -13,6 +13,7 @@ import { ClaudeCodeView } from "@/components/tools/ClaudeCodeView";
 import { LovableView } from "@/components/tools/LovableView";
 import { ReplitView } from "@/components/tools/ReplitView";
 import { BoltView } from "@/components/tools/BoltView";
+import { RorkView } from "@/components/tools/RorkView";
 
 const Index = () => {
   const [activePhase, setActivePhase] = useState("intro");
@@ -61,6 +62,9 @@ const Index = () => {
       }
       if (selectedTool === "bolt") {
         return <BoltView onBack={() => setSelectedTool(null)} />;
+      }
+      if (selectedTool === "rork") {
+        return <RorkView onBack={() => setSelectedTool(null)} />;
       }
       return <ToolsView onToolSelect={setSelectedTool} />;
     }
