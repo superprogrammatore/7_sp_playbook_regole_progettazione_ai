@@ -242,7 +242,405 @@ Trattami come uno sviluppatore che vuole capire, non copiare.`
     description: "Prompt per costruire siti web e applicazioni web moderne",
     icon: "Globe",
     colorVar: "--phase-2",
-    prompts: []
+    prompts: [
+      {
+        id: "2.1",
+        title: "Creare una landing page di vendita",
+        description: "Hero, benefici, features, testimonianze, CTA",
+        useCase: "Quando vuoi creare una pagina singola orientata alla conversione, con struttura professionale e codice pulito.",
+        expectedOutput: [
+          "Landing page completa e funzionante",
+          "Sezioni hero, benefici, features, social proof",
+          "Codice ottimizzato per performance",
+          "Istruzioni per avvio locale"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio creare una landing page di vendita professionale e moderna.
+
+Obiettivi:
+- struttura pulita e scalabile
+- performance elevate
+- codice semplice da capire
+- orientata alla conversione
+
+La landing deve includere:
+- hero section con headline e CTA
+- sezione benefici
+- sezione features
+- social proof (testimonianze fittizie)
+- CTA finale
+- footer
+
+Tecnologie:
+- scegli tu lo stack più semplice ed efficace (HTML/CSS/JS o framework leggero)
+- niente overengineering
+
+Procedi così:
+1) spiega brevemente l'architettura scelta
+2) crea la struttura delle cartelle
+3) genera tutto il codice necessario
+4) dimmi come avviare il progetto localmente
+5) spiegami come modificarla in futuro
+
+Scrivi codice pronto all'uso.`
+      },
+      {
+        id: "2.2",
+        title: "Creare un sito con funzionalità FREE e PREMIUM",
+        description: "Separazione contenuti e controllo accessi",
+        useCase: "Quando vuoi creare un sito con aree riservate agli utenti paganti, mantenendo una struttura chiara e scalabile.",
+        expectedOutput: [
+          "Architettura FREE/PREMIUM definita",
+          "Logica di controllo accessi implementata",
+          "Simulazione utenti premium",
+          "Guida per estensioni future"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio creare un sito web con:
+- area FREE accessibile a tutti
+- area PREMIUM accessibile solo agli utenti autorizzati
+
+Obiettivi:
+- separazione chiara tra contenuti free e premium
+- struttura scalabile
+- controllo degli accessi semplice ma corretto
+
+Tecnologie:
+- proponi tu lo stack più adatto
+- preferenza per semplicità e chiarezza
+
+Voglio che tu:
+1) definisca l'architettura
+2) crei la struttura del progetto
+3) implementi la logica FREE / PREMIUM
+4) simuli utenti premium (anche con dati fittizi)
+5) spieghi come estendere il sistema in futuro
+
+Parti dal filesystem, non saltare passaggi.`
+      },
+      {
+        id: "2.3",
+        title: "Creare una web app che chiede la mail tramite popup",
+        description: "Popup email, validazione, persistenza",
+        useCase: "Per raccogliere email in modo non invasivo, con validazione corretta e senza ripetere il popup inutilmente.",
+        expectedOutput: [
+          "Popup email funzionante",
+          "Validazione email corretta",
+          "Persistenza per evitare ripetizioni",
+          "Istruzioni per backend reale"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio creare una web app che:
+- mostra un popup per raccogliere email
+- valida l'email
+- salva l'email lato backend o localmente
+- evita popup ripetuti inutili
+
+Obiettivi:
+- UX pulita
+- codice semplice
+- popup non invasivo
+
+Procedi così:
+1) scegli lo stack più semplice
+2) crea struttura cartelle
+3) implementa popup + validazione
+4) gestisci la persistenza dell'email
+5) spiega come collegarlo a un backend reale in futuro
+
+Scrivi codice completo e funzionante.`
+      },
+      {
+        id: "2.4",
+        title: "Creare una web app con autenticazione",
+        description: "Registrazione, login, logout, sessioni",
+        useCase: "Quando hai bisogno di un sistema di autenticazione sicuro ma didattico, con password hashate e gestione sessioni.",
+        expectedOutput: [
+          "Sistema auth completo",
+          "Password hashate correttamente",
+          "Gestione sessione sicura",
+          "Spiegazione del flusso completo"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio creare una web app con autenticazione:
+- registrazione
+- login
+- logout
+- gestione sessione
+
+Requisiti:
+- password hashate
+- nessuna password in chiaro
+- struttura sicura ma semplice
+
+Tecnologie:
+- scegli tu lo stack più didattico
+- niente framework complessi inutili
+
+Procedi in modo guidato:
+1) architettura
+2) struttura progetto
+3) codice backend
+4) codice frontend
+5) spiegazione completa del flusso di autenticazione
+
+Il progetto deve avviarsi in locale senza configurazioni strane.`
+      },
+      {
+        id: "2.5",
+        title: "Salvare dati degli utenti in un database",
+        description: "Database, schema, operazioni CRUD",
+        useCase: "Per imparare a salvare e recuperare dati utente in modo strutturato con un database reale.",
+        expectedOutput: [
+          "Database configurato",
+          "Tabelle definite con schema chiaro",
+          "Operazioni CRUD implementate",
+          "Verifica dati salvati"
+        ],
+        content: `Sto lavorando partendo da una cartella vuota.
+
+Voglio salvare dati utente in un database.
+
+Obiettivi:
+- database semplice
+- schema chiaro
+- operazioni CRUD di base
+
+Tecnologie:
+- scegli tu tra SQLite / PostgreSQL / altro
+- priorità alla chiarezza
+
+Voglio che tu:
+1) crei il database
+2) definisca le tabelle
+3) implementi inserimento e lettura dati
+4) spieghi ogni passaggio
+5) mostri come verificare i dati salvati
+
+Non saltare il setup iniziale.`
+      },
+      {
+        id: "2.6",
+        title: "Creare una web app con database auto-generato",
+        description: "Auto-creazione database e tabelle al primo avvio",
+        useCase: "Quando vuoi un'app che si configura da sola al primo avvio, senza setup manuale del database.",
+        expectedOutput: [
+          "Strategia auto-creazione spiegata",
+          "Codice idempotente (non rompe se riavviato)",
+          "Controllo errori robusto",
+          "Test del comportamento"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio una web app che:
+- al primo avvio
+- crea automaticamente database e tabelle
+- senza intervento manuale
+
+Obiettivi:
+- zero setup manuale
+- controllo degli errori
+- idempotenza (non rompe se riavviata)
+
+Procedi così:
+1) scegli stack adatto
+2) spiega la strategia di auto-creazione
+3) implementa il codice
+4) mostra come testare il comportamento
+5) spiega rischi e limiti
+
+Scrivi codice robusto, non demo fragile.`
+      },
+      {
+        id: "2.7",
+        title: "Implementare un sistema di pagamento",
+        description: "Integrazione provider, sandbox, gestione stato",
+        useCase: "Per integrare pagamenti reali in modo sicuro, partendo da un ambiente di test.",
+        expectedOutput: [
+          "Provider pagamento integrato",
+          "Flusso pagamento spiegato",
+          "Ambiente sandbox configurato",
+          "Guida per produzione"
+        ],
+        content: `Sto partendo da una cartella vuota.
+
+Voglio implementare un sistema di pagamento reale.
+
+Obiettivi:
+- integrazione con provider affidabile
+- distinzione free / pagante
+- gestione stato pagamento
+
+Vincoli:
+- usa ambiente di test (sandbox)
+- niente chiavi reali
+- sicurezza prima di tutto
+
+Procedi così:
+1) scegli il provider più adatto
+2) spiega il flusso di pagamento
+3) crea struttura progetto
+4) implementa backend e frontend
+5) spiega come passare in produzione
+
+Il codice deve essere realistico, non finto.`
+      },
+      {
+        id: "2.8",
+        title: "Consumare API pubbliche",
+        description: "Meteo, blacklist, dati esterni",
+        useCase: "Per imparare a chiamare API esterne, gestire errori e visualizzare dati in modo pulito.",
+        expectedOutput: [
+          "Chiamate API corrette",
+          "Gestione errori implementata",
+          "Dati visualizzati chiaramente",
+          "Limiti API documentati"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio creare una web app che consuma API pubbliche.
+
+Obiettivi:
+- chiamate API corrette
+- gestione errori
+- visualizzazione dati pulita
+
+Procedi così:
+1) scegli una API pubblica reale
+2) spiega il formato dei dati
+3) implementa fetch lato frontend o backend
+4) mostra i dati in pagina
+5) gestisci errori e limiti API
+
+Codice chiaro, spiegazioni concrete.`
+      },
+      {
+        id: "2.9",
+        title: "Creare una dashboard con dati aggiornati",
+        description: "Polling o realtime, visualizzazione chiara",
+        useCase: "Per creare una dashboard che mostra dati aggiornati automaticamente, con architettura scalabile.",
+        expectedOutput: [
+          "Scelta polling/realtime motivata",
+          "Dashboard funzionante localmente",
+          "Aggiornamenti automatici",
+          "Guida per scalare"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio creare una dashboard con dati:
+- aggiornati periodicamente o in tempo reale
+- visualizzati in modo chiaro
+
+Obiettivi:
+- architettura pulita
+- aggiornamenti automatici
+- codice estendibile
+
+Procedi così:
+1) scegli tra polling o realtime
+2) spiega la scelta
+3) crea struttura progetto
+4) implementa backend + frontend
+5) spiega come scalare il sistema
+
+La dashboard deve funzionare localmente.`
+      },
+      {
+        id: "2.10",
+        title: "Implementare la Dark Mode",
+        description: "Toggle, persistenza, fallback automatico",
+        useCase: "Per aggiungere un tema scuro professionale con toggle manuale e salvataggio preferenze utente.",
+        expectedOutput: [
+          "Toggle light/dark funzionante",
+          "Preferenza salvata",
+          "Fallback automatico",
+          "UX spiegata"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio creare un sito/web app con Dark Mode.
+
+Requisiti:
+- toggle manuale
+- salvataggio preferenza utente
+- fallback automatico
+
+Procedi così:
+1) struttura base del progetto
+2) implementazione light/dark
+3) gestione stato
+4) persistenza preferenze
+5) spiegazione UX e tecnica
+
+Scrivi codice completo.`
+      },
+      {
+        id: "2.11",
+        title: "Creare un popup Exit Intent intelligente",
+        description: "Rilevamento uscita, no spam, comportamento smart",
+        useCase: "Per trattenere visitatori che stanno per lasciare la pagina, senza essere invasivi.",
+        expectedOutput: [
+          "Logica di rilevamento spiegata",
+          "Popup non ripetitivo",
+          "Condizioni intelligenti",
+          "Limiti documentati"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio creare un popup Exit Intent intelligente.
+
+Requisiti:
+- rilevamento reale dell'intento di uscita
+- no spam
+- comportamento intelligente
+
+Procedi così:
+1) spiega la logica di rilevamento
+2) implementa il popup
+3) gestisci condizioni di visualizzazione
+4) evita ripetizioni inutili
+5) spiega limiti e alternative
+
+Codice pronto all'uso.`
+      },
+      {
+        id: "2.12",
+        title: "Integrare un chatbot su FAQ aziendali (RAG semplice)",
+        description: "Chatbot contestuale, dataset locale, risposte intelligenti",
+        useCase: "Per creare un assistente virtuale che risponde basandosi su FAQ aziendali, con approccio RAG semplificato.",
+        expectedOutput: [
+          "RAG spiegato in modo pratico",
+          "Chatbot funzionante",
+          "Dataset FAQ locale",
+          "Guida per miglioramenti"
+        ],
+        content: `Parto da una cartella vuota.
+
+Voglio integrare un chatbot basato su FAQ aziendali.
+
+Obiettivi:
+- RAG semplice
+- dataset FAQ locale
+- risposte contestuali
+
+Vincoli:
+- niente overengineering
+- chiarezza didattica
+
+Procedi così:
+1) spiega cos'è il RAG in modo pratico
+2) definisci l'architettura
+3) crea struttura progetto
+4) implementa chatbot funzionante
+5) spiega come migliorarlo in futuro
+
+Scrivi codice completo, non pseudo-codice.`
+      }
+    ]
   },
   {
     id: "app-software",
