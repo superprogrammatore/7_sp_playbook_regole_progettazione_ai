@@ -2406,7 +2406,242 @@ Approccio pragmatico, niente panico.`
     description: "Prompt per pubblicare e distribuire applicazioni",
     icon: "Rocket",
     colorVar: "--phase-1",
-    prompts: []
+    prompts: [
+      {
+        id: "10.1",
+        title: "Pubblicare una landing page online",
+        description: "Deploy semplice con URL pubblico funzionante",
+        useCase: "Quando hai una landing page statica e vuoi vederla online con un URL pubblico, nel modo più semplice possibile.",
+        expectedOutput: [
+          "Soluzione di hosting scelta e spiegata",
+          "Landing page minimale creata",
+          "Deploy passo passo completato",
+          "Istruzioni per aggiornamenti futuri"
+        ],
+        content: `Sto partendo da una cartella completamente vuota.
+
+Voglio pubblicare online una landing page statica.
+
+Obiettivi:
+- deploy semplice
+- caricamento veloce
+- URL pubblico funzionante
+
+Procedi così:
+1) scegli la soluzione di hosting più semplice ed efficace
+2) spiega perché è adatta a una landing page
+3) crea la struttura del progetto
+4) genera una landing page minimale
+5) mostrami passo passo come pubblicarla
+6) dimmi come aggiornare la pagina in futuro
+
+Voglio vedere la pagina online, non solo in locale.`
+      },
+      {
+        id: "10.2",
+        title: "Deploy di una web app frontend",
+        description: "Build corretta e deploy stabile",
+        useCase: "Quando hai un'applicazione frontend (React, Vue, etc.) e vuoi pubblicarla online con una build di produzione ottimizzata.",
+        expectedOutput: [
+          "Spiegazione del processo di build",
+          "Build locale eseguita correttamente",
+          "Deploy su piattaforma configurato",
+          "Verifica online e gestione errori"
+        ],
+        content: `Sto partendo da una cartella vuota o da un progetto frontend già esistente.
+
+Voglio fare il deploy di una web app frontend.
+
+Obiettivi:
+- build corretta
+- deploy stabile
+- gestione errori di build
+
+Procedi così:
+1) spiega cosa succede durante la build
+2) mostrami come lanciare la build localmente
+3) scegli una piattaforma di deploy adatta
+4) configura il deploy passo passo
+5) mostrami come verificare che tutto funzioni online
+6) spiega errori comuni di deploy frontend
+
+Approccio pratico, niente buzzword.`
+      },
+      {
+        id: "10.3",
+        title: "Deploy di un backend",
+        description: "Backend raggiungibile online con sicurezza base",
+        useCase: "Quando hai un backend funzionante in locale e vuoi renderlo accessibile via HTTP pubblicamente.",
+        expectedOutput: [
+          "Spiegazione di cosa serve per mettere online un backend",
+          "Piattaforma scelta e configurata",
+          "Backend avviato in produzione",
+          "Verifica risposta HTTP e errori comuni"
+        ],
+        content: `Parto da una cartella vuota o da un backend già funzionante in locale.
+
+Voglio fare il deploy di un backend.
+
+Obiettivi:
+- backend raggiungibile online
+- configurazione corretta
+- sicurezza di base
+
+Procedi così:
+1) spiega cosa serve per mettere online un backend
+2) scegli una piattaforma adatta
+3) configura ambiente di produzione
+4) mostra come avviare il backend in produzione
+5) verifica che risponda correttamente
+6) spiega errori comuni nel deploy backend
+
+Voglio un backend realmente accessibile via HTTP.`
+      },
+      {
+        id: "10.4",
+        title: "Collegare frontend e backend in produzione",
+        description: "Chiamate API funzionanti con CORS corretto",
+        useCase: "Quando hai frontend e backend entrambi online ma non comunicano correttamente e vuoi capire dove si rompe.",
+        expectedOutput: [
+          "Differenze locale/produzione spiegate",
+          "Endpoint configurati correttamente",
+          "Variabili d'ambiente gestite",
+          "Debug chiamate API"
+        ],
+        content: `Ho un frontend e un backend entrambi online.
+
+Voglio collegarli correttamente in produzione.
+
+Obiettivi:
+- chiamate API funzionanti
+- niente URL hardcoded sbagliati
+- gestione CORS corretta
+
+Procedi così:
+1) spiega le differenze tra collegamento locale e produzione
+2) configura endpoint corretti
+3) gestisci variabili d'ambiente lato frontend
+4) verifica chiamate API reali
+5) mostra come debuggarle se falliscono
+6) spiega errori tipici di integrazione
+
+Voglio capire dove si rompe se qualcosa non funziona.`
+      },
+      {
+        id: "10.5",
+        title: "Gestire variabili d'ambiente in produzione",
+        description: "Segreti protetti e configurazioni separate",
+        useCase: "Quando devi passare dal locale alla produzione e vuoi gestire le variabili d'ambiente in modo sicuro e corretto.",
+        expectedOutput: [
+          "Differenze env locale/produzione spiegate",
+          "Variabili configurate in produzione",
+          "Verifica lettura corretta",
+          "Procedura per rotazione segreti"
+        ],
+        content: `Sto per mandare un progetto in produzione.
+
+Voglio gestire correttamente le variabili d'ambiente.
+
+Obiettivi:
+- segreti protetti
+- configurazioni separate
+- nessun valore hardcoded
+
+Procedi così:
+1) spiega cosa cambia tra env locale e produzione
+2) definisci le variabili necessarie
+3) mostra come configurarle in produzione
+4) verifica che vengano lette correttamente dal codice
+5) spiega errori comuni
+6) spiega come ruotare i segreti se compromessi
+
+Approccio pratico e sicuro.`
+      },
+      {
+        id: "10.6",
+        title: "Collegare un dominio personalizzato",
+        description: "DNS, HTTPS e configurazione corretta",
+        useCase: "Quando hai un'app online con URL tecnico e vuoi collegare il tuo dominio personalizzato con HTTPS.",
+        expectedOutput: [
+          "Spiegazione pratica di DNS, record A e CNAME",
+          "Dominio collegato all'hosting",
+          "HTTPS configurato",
+          "Troubleshooting propagazione"
+        ],
+        content: `Ho un'app o un sito online con un URL tecnico.
+
+Voglio collegare un dominio personalizzato.
+
+Obiettivi:
+- dominio funzionante
+- HTTPS attivo
+- configurazione corretta DNS
+
+Procedi così:
+1) spiega cosa sono DNS, record A e CNAME in modo pratico
+2) mostra come collegare il dominio al servizio di hosting
+3) configura HTTPS
+4) verifica che il dominio risponda correttamente
+5) spiega tempi di propagazione e problemi comuni
+6) mostra come fare rollback se qualcosa va storto
+
+Voglio capire cosa sto facendo, non solo cliccare.`
+      },
+      {
+        id: "10.7",
+        title: "Capire perché \"in locale funziona ma online no\"",
+        description: "Debug sistematico produzione vs locale",
+        useCase: "Quando il progetto funziona perfettamente in locale ma si rompe in produzione e non capisci perché.",
+        expectedOutput: [
+          "Checklist di debug produzione",
+          "Confronto sistematico locale/produzione",
+          "Lettura log di produzione",
+          "Metodo per restringere il problema"
+        ],
+        content: `Il progetto funziona in locale ma non in produzione.
+
+Voglio un metodo sistematico per capire perché.
+
+Procedi così:
+1) crea una checklist di debug produzione
+2) confronta:
+   - ambiente locale vs produzione
+   - variabili d'ambiente
+   - build
+   - permessi
+3) mostrami come leggere log di produzione
+4) individua i punti più comuni di rottura
+5) fammi restringere il problema passo dopo passo
+6) dimmi quando ho trovato davvero la causa
+
+Niente tentativi casuali. Voglio metodo.`
+      },
+      {
+        id: "10.8",
+        title: "Risolvere errori di build e deploy",
+        description: "Debug strutturato di log e correzione minima",
+        useCase: "Quando hai errori durante la build o il deploy e vuoi capire come leggerli e risolverli in modo strutturato.",
+        expectedOutput: [
+          "Spiegazione di come leggere i log",
+          "Identificazione errore reale vs rumore",
+          "Correzione minima proposta",
+          "Prevenzione errori futuri"
+        ],
+        content: `Ho errori durante build o deploy.
+
+Voglio risolverli in modo strutturato.
+
+Procedi così:
+1) fammi incollare log completi di build/deploy
+2) spiegami come leggere i log
+3) individua l'errore reale (non il rumore)
+4) proponi la correzione minima possibile
+5) spiegami perché funziona
+6) dimmi come evitare lo stesso errore in futuro
+
+Guidami come farebbe un senior in produzione.`
+      }
+    ]
   },
   {
     id: "file-documenti",
