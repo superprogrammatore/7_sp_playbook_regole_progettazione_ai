@@ -12,6 +12,7 @@ import {
   Code2,
   Rocket,
 } from "lucide-react";
+import superProgrammatoreLogo from "@/assets/super-programmatore-logo.png";
 
 interface IntroViewProps {
   onPhaseChange: (phaseId: string) => void;
@@ -33,8 +34,17 @@ export function IntroView({ onPhaseChange }: IntroViewProps) {
         <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-phase-7/20 rounded-full blur-2xl float" style={{ animationDelay: '4s' }} />
 
         <div className="relative p-8 md:p-12">
+          {/* Logo */}
+          <div className="flex justify-center mb-8">
+            <img 
+              src={superProgrammatoreLogo} 
+              alt="Super Programmatore Logo" 
+              className="h-48 md:h-56 lg:h-64 w-auto object-contain drop-shadow-2xl"
+            />
+          </div>
+
           {/* Top badges */}
-          <div className="flex flex-wrap items-center gap-3 mb-6">
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
             <div className="flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 border border-primary/20">
               <Sparkles className="h-4 w-4 text-primary" />
               <span className="text-sm font-semibold text-primary">Metodo Strutturato</span>
@@ -42,16 +52,16 @@ export function IntroView({ onPhaseChange }: IntroViewProps) {
             <div className="flex items-center gap-2 rounded-full bg-phase-7/15 px-4 py-1.5 border border-phase-7/30">
               <Rocket className="h-4 w-4" style={{ color: 'hsl(var(--phase-7))' }} />
               <span className="text-sm font-semibold" style={{ color: 'hsl(var(--phase-7))' }}>
-                Progetto integrativo SUPER PROGRAMMATORE
+                Progetto integrativo
               </span>
             </div>
           </div>
           
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-center">
             Impara a guidare l'
             <span className="text-gradient">AI</span>
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground leading-relaxed text-center">
             Un approccio disciplinato per lavorare con <span className="text-primary font-semibold">Cursor</span> e altri AI coding assistants. 
             Non impari un linguaggio, ma un <span className="text-foreground font-medium">processo ripetibile</span> e <span className="text-foreground font-medium">professionale</span>.
           </p>
