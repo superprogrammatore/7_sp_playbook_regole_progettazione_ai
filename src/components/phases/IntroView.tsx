@@ -39,7 +39,7 @@ export function IntroView({ onPhaseChange }: IntroViewProps) {
             <img 
               src={superProgrammatoreLogo} 
               alt="Super Programmatore Logo" 
-              className="h-48 md:h-56 lg:h-64 w-auto object-contain drop-shadow-2xl"
+              className="h-64 md:h-80 lg:h-96 w-auto object-contain drop-shadow-2xl"
             />
           </div>
 
