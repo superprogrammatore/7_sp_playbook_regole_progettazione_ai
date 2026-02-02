@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Lock, Sparkles, Eye, EyeOff } from "lucide-react";
+import { Lock, Eye, EyeOff } from "lucide-react";
 import { validateAccessCode } from "@/lib/auth";
+import superProgrammatoreLogo from "@/assets/super-programmatore-logo.png";
 
 interface LoginScreenProps {
   onLogin: () => void;
@@ -47,8 +48,12 @@ export const LoginScreen = ({ onLogin }: LoginScreenProps) => {
 
       <Card className="w-full max-w-md relative z-10 border-border/50 bg-card/80 backdrop-blur-sm">
         <CardHeader className="text-center space-y-4">
-          <div className="mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
-            <Sparkles className="w-8 h-8 text-primary-foreground" />
+          <div className="flex justify-center">
+            <img 
+              src={superProgrammatoreLogo} 
+              alt="Super Programmatore Logo" 
+              className="h-32 md:h-40 w-auto object-contain drop-shadow-2xl"
+            />
           </div>
           <div>
             <CardTitle className="text-2xl font-bold">
