@@ -1,7 +1,6 @@
 import { exerciseCategories } from "@/data/exercises";
 import { cn } from "@/lib/utils";
-import { ArrowLeft, CheckCircle2, Circle, Code2 } from "lucide-react";
-import { useState } from "react";
+import { ArrowLeft } from "lucide-react";
 
 interface ExerciseCategoryViewProps {
   categoryId: string;
@@ -10,7 +9,6 @@ interface ExerciseCategoryViewProps {
 
 export function ExerciseCategoryView({ categoryId, onBack }: ExerciseCategoryViewProps) {
   const category = exerciseCategories.find((c) => c.id === categoryId);
-  const [completedExercises, setCompletedExercises] = useState<Set<number>>(new Set());
 
   if (!category) {
     return (
@@ -25,21 +23,6 @@ export function ExerciseCategoryView({ categoryId, onBack }: ExerciseCategoryVie
       </div>
     );
   }
-
-  const toggleExercise = (exerciseId: number) => {
-    setCompletedExercises((prev) => {
-      const newSet = new Set(prev);
-      if (newSet.has(exerciseId)) {
-        newSet.delete(exerciseId);
-      } else {
-        newSet.add(exerciseId);
-      }
-      return newSet;
-    });
-  };
-
-  const completedCount = completedExercises.size;
-  const progressPercentage = (completedCount / category.exercises.length) * 100;
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -89,146 +72,48 @@ export function ExerciseCategoryView({ categoryId, onBack }: ExerciseCategoryVie
               </p>
             </div>
           </div>
-
-          {/* Progress Bar */}
-          <div className="mt-6">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-muted-foreground">Progresso</span>
-              <span className="text-sm font-medium" style={{ color: `hsl(var(${category.colorVar}))` }}>
-                {completedCount}/{category.exercises.length} completati
-              </span>
-            </div>
-            <div className="h-2 bg-muted rounded-full overflow-hidden">
-              <div
-                className="h-full rounded-full transition-all duration-500"
-                style={{
-                  width: `${progressPercentage}%`,
-                  backgroundColor: `hsl(var(${category.colorVar}))`,
-                }}
-              />
-            </div>
-          </div>
         </div>
       </div>
 
       {/* Exercise List */}
       <div className="space-y-3">
-        {category.exercises.map((exercise, index) => {
-          const isCompleted = completedExercises.has(exercise.id);
-
-          return (
-            <div
-              key={exercise.id}
-              onClick={() => toggleExercise(exercise.id)}
-              className={cn(
-                "group relative overflow-hidden rounded-xl border bg-card/80 p-5 transition-all duration-300 cursor-pointer",
-                isCompleted
-                  ? "border-primary/50 bg-primary/5"
-                  : "border-border/50 hover:border-border hover:bg-card"
-              )}
-              style={{
-                animationDelay: `${index * 30}ms`,
-              }}
-            >
-              {/* Completed Indicator */}
+        {category.exercises.map((exercise, index) => (
+          <div
+            key={exercise.id}
+            className="group relative overflow-hidden rounded-xl border border-border/50 bg-card/80 p-5 transition-all duration-300 hover:border-border hover:bg-card"
+            style={{
+              animationDelay: `${index * 30}ms`,
+            }}
+          >
+            <div className="flex items-start gap-4">
+              {/* Number */}
               <div
-                className={cn(
-                  "absolute left-0 top-0 bottom-0 w-1 transition-all duration-300",
-                  isCompleted ? "opacity-100" : "opacity-0"
-                )}
-                style={{ backgroundColor: `hsl(var(${category.colorVar}))` }}
-              />
-
-              <div className="flex items-start gap-4">
-                {/* Number/Check */}
-                <div
-                  className={cn(
-                    "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300",
-                    isCompleted ? "scale-110" : "group-hover:scale-105"
-                  )}
-                  style={{
-                    backgroundColor: isCompleted
-                      ? `hsl(var(${category.colorVar}) / 0.2)`
-                      : `hsl(var(${category.colorVar}) / 0.1)`,
-                  }}
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-105"
+                style={{
+                  backgroundColor: `hsl(var(${category.colorVar}) / 0.1)`,
+                }}
+              >
+                <span
+                  className="text-sm font-bold"
+                  style={{ color: `hsl(var(${category.colorVar}))` }}
                 >
-                  {isCompleted ? (
-                    <CheckCircle2
-                      className="h-5 w-5"
-                      style={{ color: `hsl(var(${category.colorVar}))` }}
-                    />
-                  ) : (
-                    <span
-                      className="text-sm font-bold"
-                      style={{ color: `hsl(var(${category.colorVar}))` }}
-                    >
-                      {index + 1}
-                    </span>
-                  )}
-                </div>
+                  {index + 1}
+                </span>
+              </div>
 
-                {/* Content */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <h3
-                      className={cn(
-                        "font-semibold transition-colors",
-                        isCompleted ? "text-primary" : "text-foreground"
-                      )}
-                    >
-                      {exercise.title}
-                    </h3>
-                    {isCompleted && (
-                      <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary">
-                        Completato
-                      </span>
-                    )}
-                  </div>
-                  <p
-                    className={cn(
-                      "mt-1.5 text-sm leading-relaxed",
-                      isCompleted ? "text-muted-foreground/70" : "text-muted-foreground"
-                    )}
-                  >
-                    {exercise.description}
-                  </p>
-                </div>
-
-                {/* Toggle indicator */}
-                <div className="shrink-0">
-                  {isCompleted ? (
-                    <CheckCircle2 className="h-5 w-5 text-primary" />
-                  ) : (
-                    <Circle className="h-5 w-5 text-muted-foreground/50 group-hover:text-muted-foreground transition-colors" />
-                  )}
-                </div>
+              {/* Content */}
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-foreground">
+                  {exercise.title}
+                </h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                  {exercise.description}
+                </p>
               </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
-
-      {/* Completion Message */}
-      {completedCount === category.exercises.length && (
-        <div
-          className="relative overflow-hidden rounded-xl border p-6 text-center animate-fade-in"
-          style={{
-            borderColor: `hsl(var(${category.colorVar}) / 0.5)`,
-            backgroundColor: `hsl(var(${category.colorVar}) / 0.05)`,
-          }}
-        >
-          <div className="text-4xl mb-3">🎉</div>
-          <h3
-            className="text-xl font-bold mb-2"
-            style={{ color: `hsl(var(${category.colorVar}))` }}
-          >
-            Categoria Completata!
-          </h3>
-          <p className="text-muted-foreground">
-            Hai completato tutti gli esercizi di {category.name}. Ottimo lavoro!
-          </p>
-        </div>
-      )}
     </div>
   );
 }
